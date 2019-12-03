@@ -22,8 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        compositionRoot = CompositionRoot()
-        
+        window = UIWindow()
+        configureCompositionRoot()
         configureFirebase()
         configurePushNotification()
         configureApplicationEntryPoint()
@@ -31,21 +31,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func configureCompositionRoot() {
+        
+        guard let window = window else { return }
+        compositionRoot = CompositionRoot(window: window)
+    }
 
     func configureApplicationEntryPoint() {
         
-        guard let compositionRoot = compositionRoot else {
-            return
-        }
-        
-        let coordinator = compositionRoot.getCoordinator()
-        
-        window = UIWindow()
-        window?.makeKeyAndVisible()
-        
-        coordinator.onStart()
-        
-        window?.rootViewController = coordinator.navigationController
+        guard let compositionRoot = compositionRoot else { return }
+        compositionRoot.getCoordinator().onStart()
     }
     
     func configureLogging() {

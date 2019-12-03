@@ -11,35 +11,44 @@ import Foundation
 protocol LoginPresenter {
     func imcompeleteLoginDetail()
     func userProfileFetched(user: User)
-    func userProfileError(err: Error?)
-    func fetching()
+    func userProfileError(err: FetchUserProfileUseCaseError)
+    func userProfileFetching()
 }
 
 class LoginPresenterImpl: LoginPresenter {
     
     private weak var viewMvc: LoginViewMvc?
-    private weak var coordinator: Coordinator?
+    private weak var coordinator: ApplicationCoordinator?
     
-    init(coordinator: Coordinator, viewMvc: LoginViewMvc) {
+    init(coordinator: ApplicationCoordinator, viewMvc: LoginViewMvc) {
         self.coordinator = coordinator
         self.viewMvc = viewMvc
     }
     
-    func userProfileError(err: Error?) {
+    func userProfileError(err: FetchUserProfileUseCaseError) {
+
+        switch err {
+            
+        case .decodeJsonUnsucessful:
+            viewMvc?.showAlert(title: "Login Error", description: "Email and/or password in incorrect")
+            
+        case .requestFailed:
+            viewMvc?.showAlert(title: "Login Error", description: "Bad URL request")
+        }
         viewMvc?.hideLoadingIndicator()
     }
     
     func userProfileFetched(user: User) {
         viewMvc?.hideLoadingIndicator()
-        coordinator?.segueToUserProfileVC(user: user)
+        coordinator?.pushToMainTabBarController(user: user)
     }
     
-    func fetching() {
+    func userProfileFetching() {
         viewMvc?.showLoadingIndicator()
     }
     
     func imcompeleteLoginDetail() {
-        viewMvc?.alertFormImcomplete()
+        viewMvc?.showAlert(title: "Login Error", description: "Please enter your username and/or password")
     }
     
 }

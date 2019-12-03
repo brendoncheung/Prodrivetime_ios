@@ -7,10 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B11F7DE2393150800F21A8E /* JobRequestHistoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B11F7DD2393150800F21A8E /* JobRequestHistoryDataSource.swift */; };
+		4B11F7E023931C8200F21A8E /* JobRequestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B11F7DF23931C8200F21A8E /* JobRequestHistory.swift */; };
+		4B11F7E2239327F700F21A8E /* RequestHistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B11F7E1239327F700F21A8E /* RequestHistoryDetailViewController.swift */; };
+		4B5ECA4123887A4A005FEE4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B5ECA4023887A4A005FEE4A /* LaunchScreen.storyboard */; };
+		4B5ECA4523888E7D005FEE4A /* FilterPredicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5ECA4423888E7D005FEE4A /* FilterPredicates.swift */; };
 		4B7280E3237B113A006E4605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7280E2237B113A006E4605 /* AppDelegate.swift */; };
 		4B7280E5237B113A006E4605 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7280E4237B113A006E4605 /* LoginViewController.swift */; };
 		4B7280EA237B113C006E4605 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4B7280E9237B113C006E4605 /* Assets.xcassets */; };
-		4B7280ED237B113C006E4605 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B7280EB237B113C006E4605 /* LaunchScreen.storyboard */; };
 		4B7280F8237B113C006E4605 /* FetchUserProfileUseCaseTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7280F7237B113C006E4605 /* FetchUserProfileUseCaseTest.swift */; };
 		4B728107237B3308006E4605 /* BaseObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B728106237B3308006E4605 /* BaseObservable.swift */; };
 		4B728109237B3B3B006E4605 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B728108237B3B3B006E4605 /* LoginInteractor.swift */; };
@@ -24,6 +28,27 @@
 		4B72813E237DBD53006E4605 /* BaseNetworkSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B72813D237DBD53006E4605 /* BaseNetworkSession.swift */; };
 		4B728143237DC119006E4605 /* CompositionRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B728142237DC119006E4605 /* CompositionRoot.swift */; };
 		4B728145237DC263006E4605 /* URLRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B728144237DC263006E4605 /* URLRequestFactory.swift */; };
+		4B756F0F2384830600566118 /* JobRequestInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B756F0E2384830600566118 /* JobRequestInteractor.swift */; };
+		4B756F112384832E00566118 /* JobRequestPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B756F102384832E00566118 /* JobRequestPresenter.swift */; };
+		4B756F452386E19900566118 /* ProdriveJobRequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B756F442386E19900566118 /* ProdriveJobRequestCell.xib */; };
+		4B756F472386E1C300566118 /* ProdriveJobRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B756F462386E1C300566118 /* ProdriveJobRequestCell.swift */; };
+		4B8580EA238CC20F00C1B779 /* UserProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8580E9238CC20F00C1B779 /* UserProfileCoordinator.swift */; };
+		4B8580EE238D878B00C1B779 /* JobRequestHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8580ED238D878B00C1B779 /* JobRequestHistoryViewController.swift */; };
+		4B8580F0238D888300C1B779 /* JobRequestHistoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8580EF238D888300C1B779 /* JobRequestHistoryCoordinator.swift */; };
+		4B8580F1238D893E00C1B779 /* JobRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B756F0C238482EB00566118 /* JobRequestViewController.swift */; };
+		4B8580F6238D8B0500C1B779 /* JobRequestCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8580F5238D8B0400C1B779 /* JobRequestCoordinator.swift */; };
+		4B8580F8238DD2C500C1B779 /* FetchCompanyInformationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8580F7238DD2C500C1B779 /* FetchCompanyInformationUseCase.swift */; };
+		4B8580FA238DD3E900C1B779 /* Company.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8580F9238DD3E900C1B779 /* Company.swift */; };
+		4B8580FC238E27FC00C1B779 /* JobRequestHistoryInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8580FB238E27FC00C1B779 /* JobRequestHistoryInteractor.swift */; };
+		4B8580FE238E2FAB00C1B779 /* JobRequestHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8580FD238E2FAB00C1B779 /* JobRequestHistoryPresenter.swift */; };
+		4B858100238ED76300C1B779 /* AcceptJobRequestUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8580FF238ED76300C1B779 /* AcceptJobRequestUseCase.swift */; };
+		4B8CD1622395B019005556A3 /* RequestHistoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8CD1612395B019005556A3 /* RequestHistoryDetailPresenter.swift */; };
+		4B8CD1642395B02A005556A3 /* RequestHistoryDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8CD1632395B02A005556A3 /* RequestHistoryDetailInteractor.swift */; };
+		4BB072F723899B07007402AB /* JobRequestDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB072F623899B07007402AB /* JobRequestDataSource.swift */; };
+		4BB0732A2389ADF1007402AB /* ProdriveImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB073292389ADF1007402AB /* ProdriveImage.swift */; };
+		4BB0732D2389D94C007402AB /* RequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB0732C2389D94C007402AB /* RequestDetailViewController.swift */; };
+		4BB0732F2389D977007402AB /* RequestDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB0732E2389D977007402AB /* RequestDetailInteractor.swift */; };
+		4BB073312389D995007402AB /* RequestDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB073302389D995007402AB /* RequestDetailPresenter.swift */; };
 		4BDD964D2382502100CED6C1 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD964C2382502100CED6C1 /* UserProfileViewController.swift */; };
 		4BDD964F2382507B00CED6C1 /* UserProfileViewInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD964E2382507B00CED6C1 /* UserProfileViewInteractor.swift */; };
 		4BDD96512382508C00CED6C1 /* UserProfileViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD96502382508C00CED6C1 /* UserProfileViewPresenter.swift */; };
@@ -31,10 +56,19 @@
 		4BDD965A2382FE0400CED6C1 /* Storyboarded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD96592382FE0400CED6C1 /* Storyboarded.swift */; };
 		4BDD965C2383024300CED6C1 /* BaseNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD965B2383024300CED6C1 /* BaseNavigationViewController.swift */; };
 		4BDD965E2383051400CED6C1 /* Injector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD965D2383051400CED6C1 /* Injector.swift */; };
+		4BDD9662238339BE00CED6C1 /* BaseInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD9661238339BE00CED6C1 /* BaseInteractor.swift */; };
+		4BDD96662383420400CED6C1 /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD96652383420400CED6C1 /* KeychainPasswordItem.swift */; };
+		4BDD96682383422A00CED6C1 /* KeychainConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD96672383422A00CED6C1 /* KeychainConfiguration.swift */; };
+		4BDD9696238390FA00CED6C1 /* JobRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD9695238390FA00CED6C1 /* JobRequest.swift */; };
+		4BDD969823845D3500CED6C1 /* BaseTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD969723845D3500CED6C1 /* BaseTabBarViewController.swift */; };
+		4BDD969A23847C2700CED6C1 /* FetchRequestUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD969923847C2700CED6C1 /* FetchRequestUseCase.swift */; };
+		4BDD969C23847C3F00CED6C1 /* FetchRequestHistoryUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD969B23847C3F00CED6C1 /* FetchRequestHistoryUseCase.swift */; };
+		4BDD969E23847C6600CED6C1 /* UserLogOffUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD969D23847C6600CED6C1 /* UserLogOffUseCase.swift */; };
+		4BDD96A023847D2700CED6C1 /* UserProfileViewCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BDD969F23847D2700CED6C1 /* UserProfileViewCoordinator.swift */; };
 		4BF9826E237F0FDC0091915D /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9826C237F0F920091915D /* LoginPresenter.swift */; };
 		4BF98277237F26E80091915D /* ProdriveButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF98276237F26E80091915D /* ProdriveButton.swift */; };
 		4BF9827B237F31620091915D /* ProdriveTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9827A237F31620091915D /* ProdriveTextField.swift */; };
-		4BF982B9237F47820091915D /* MainCoordinatorImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF982B8237F47820091915D /* MainCoordinatorImpl.swift */; };
+		4BF982B9237F47820091915D /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF982B8237F47820091915D /* ApplicationCoordinator.swift */; };
 		4BF983902380F2B10091915D /* ThreadScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF9838F2380F2B00091915D /* ThreadScheduler.swift */; };
 		4BF983932381A86B0091915D /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BF983922381A86B0091915D /* BaseViewController.swift */; };
 		A757479A5AEA0EB89CE754C6 /* Pods_Prodrivetime_ios.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D25C69C87340A6D54D5C6079 /* Pods_Prodrivetime_ios.framework */; };
@@ -51,12 +85,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4B11F7DD2393150800F21A8E /* JobRequestHistoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequestHistoryDataSource.swift; sourceTree = "<group>"; };
+		4B11F7DF23931C8200F21A8E /* JobRequestHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequestHistory.swift; sourceTree = "<group>"; };
+		4B11F7E1239327F700F21A8E /* RequestHistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHistoryDetailViewController.swift; sourceTree = "<group>"; };
+		4B5ECA4023887A4A005FEE4A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4B5ECA4423888E7D005FEE4A /* FilterPredicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPredicates.swift; sourceTree = "<group>"; };
 		4B7280DF237B113A006E4605 /* Prodrivetime_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prodrivetime_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B7280E2237B113A006E4605 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B7280E4237B113A006E4605 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		4B7280E7237B113A006E4605 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B7280E9237B113C006E4605 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4B7280EC237B113C006E4605 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B7280EE237B113C006E4605 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4B7280F3237B113C006E4605 /* Prodrivetime_iosTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Prodrivetime_iosTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B7280F7237B113C006E4605 /* FetchUserProfileUseCaseTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchUserProfileUseCaseTest.swift; sourceTree = "<group>"; };
@@ -72,6 +110,27 @@
 		4B72813D237DBD53006E4605 /* BaseNetworkSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkSession.swift; sourceTree = "<group>"; };
 		4B728142237DC119006E4605 /* CompositionRoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionRoot.swift; sourceTree = "<group>"; };
 		4B728144237DC263006E4605 /* URLRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequestFactory.swift; sourceTree = "<group>"; };
+		4B756F0C238482EB00566118 /* JobRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequestViewController.swift; sourceTree = "<group>"; };
+		4B756F0E2384830600566118 /* JobRequestInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequestInteractor.swift; sourceTree = "<group>"; };
+		4B756F102384832E00566118 /* JobRequestPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JobRequestPresenter.swift; path = ../JobRequestPresenter.swift; sourceTree = "<group>"; };
+		4B756F442386E19900566118 /* ProdriveJobRequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProdriveJobRequestCell.xib; sourceTree = "<group>"; };
+		4B756F462386E1C300566118 /* ProdriveJobRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdriveJobRequestCell.swift; sourceTree = "<group>"; };
+		4B8580E9238CC20F00C1B779 /* UserProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCoordinator.swift; sourceTree = "<group>"; };
+		4B8580ED238D878B00C1B779 /* JobRequestHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequestHistoryViewController.swift; sourceTree = "<group>"; };
+		4B8580EF238D888300C1B779 /* JobRequestHistoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequestHistoryCoordinator.swift; sourceTree = "<group>"; };
+		4B8580F5238D8B0400C1B779 /* JobRequestCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobRequestCoordinator.swift; sourceTree = "<group>"; };
+		4B8580F7238DD2C500C1B779 /* FetchCompanyInformationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCompanyInformationUseCase.swift; sourceTree = "<group>"; };
+		4B8580F9238DD3E900C1B779 /* Company.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Company.swift; sourceTree = "<group>"; };
+		4B8580FB238E27FC00C1B779 /* JobRequestHistoryInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequestHistoryInteractor.swift; sourceTree = "<group>"; };
+		4B8580FD238E2FAB00C1B779 /* JobRequestHistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequestHistoryPresenter.swift; sourceTree = "<group>"; };
+		4B8580FF238ED76300C1B779 /* AcceptJobRequestUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptJobRequestUseCase.swift; sourceTree = "<group>"; };
+		4B8CD1612395B019005556A3 /* RequestHistoryDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHistoryDetailPresenter.swift; sourceTree = "<group>"; };
+		4B8CD1632395B02A005556A3 /* RequestHistoryDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHistoryDetailInteractor.swift; sourceTree = "<group>"; };
+		4BB072F623899B07007402AB /* JobRequestDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JobRequestDataSource.swift; path = ../JobRequestDataSource.swift; sourceTree = "<group>"; };
+		4BB073292389ADF1007402AB /* ProdriveImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdriveImage.swift; sourceTree = "<group>"; };
+		4BB0732C2389D94C007402AB /* RequestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetailViewController.swift; sourceTree = "<group>"; };
+		4BB0732E2389D977007402AB /* RequestDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetailInteractor.swift; sourceTree = "<group>"; };
+		4BB073302389D995007402AB /* RequestDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetailPresenter.swift; sourceTree = "<group>"; };
 		4BDD964C2382502100CED6C1 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		4BDD964E2382507B00CED6C1 /* UserProfileViewInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewInteractor.swift; sourceTree = "<group>"; };
 		4BDD96502382508C00CED6C1 /* UserProfileViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewPresenter.swift; sourceTree = "<group>"; };
@@ -79,10 +138,19 @@
 		4BDD96592382FE0400CED6C1 /* Storyboarded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboarded.swift; sourceTree = "<group>"; };
 		4BDD965B2383024300CED6C1 /* BaseNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationViewController.swift; sourceTree = "<group>"; };
 		4BDD965D2383051400CED6C1 /* Injector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Injector.swift; sourceTree = "<group>"; };
+		4BDD9661238339BE00CED6C1 /* BaseInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInteractor.swift; sourceTree = "<group>"; };
+		4BDD96652383420400CED6C1 /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		4BDD96672383422A00CED6C1 /* KeychainConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainConfiguration.swift; sourceTree = "<group>"; };
+		4BDD9695238390FA00CED6C1 /* JobRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequest.swift; sourceTree = "<group>"; };
+		4BDD969723845D3500CED6C1 /* BaseTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarViewController.swift; sourceTree = "<group>"; };
+		4BDD969923847C2700CED6C1 /* FetchRequestUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRequestUseCase.swift; sourceTree = "<group>"; };
+		4BDD969B23847C3F00CED6C1 /* FetchRequestHistoryUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchRequestHistoryUseCase.swift; sourceTree = "<group>"; };
+		4BDD969D23847C6600CED6C1 /* UserLogOffUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogOffUseCase.swift; sourceTree = "<group>"; };
+		4BDD969F23847D2700CED6C1 /* UserProfileViewCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewCoordinator.swift; sourceTree = "<group>"; };
 		4BF9826C237F0F920091915D /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
 		4BF98276237F26E80091915D /* ProdriveButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdriveButton.swift; sourceTree = "<group>"; };
 		4BF9827A237F31620091915D /* ProdriveTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdriveTextField.swift; sourceTree = "<group>"; };
-		4BF982B8237F47820091915D /* MainCoordinatorImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorImpl.swift; sourceTree = "<group>"; };
+		4BF982B8237F47820091915D /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		4BF9838F2380F2B00091915D /* ThreadScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadScheduler.swift; sourceTree = "<group>"; };
 		4BF983922381A86B0091915D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5CA95D1DCB5F03DEA7F8C6A2 /* Pods-Prodrivetime_ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prodrivetime_ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prodrivetime_ios/Pods-Prodrivetime_ios.release.xcconfig"; sourceTree = "<group>"; };
@@ -132,12 +200,13 @@
 		4B7280E1237B113A006E4605 /* Prodrivetime_ios */ = {
 			isa = PBXGroup;
 			children = (
-				4BDD96572382EA2600CED6C1 /* GoogleService-Info.plist */,
 				4BF9826F237F138E0091915D /* application */,
-				4BF983912381A82E0091915D /* storyboard */,
 				4B72810A237B3B5A006E4605 /* domain */,
+				4BF983912381A82E0091915D /* storyboard */,
 				4B728103237B2FA2006E4605 /* networking */,
 				4B728102237B1194006E4605 /* ui */,
+				4BDD9663238341E000CED6C1 /* utils */,
+				4BDD96572382EA2600CED6C1 /* GoogleService-Info.plist */,
 			);
 			path = Prodrivetime_ios;
 			sourceTree = "<group>";
@@ -194,6 +263,12 @@
 			children = (
 				4B728116237B58BD006E4605 /* FetchUserProfileUseCase.swift */,
 				4B728134237CAA5D006E4605 /* FetchFireBaseTokenUseCase.swift */,
+				4BDD969923847C2700CED6C1 /* FetchRequestUseCase.swift */,
+				4BDD969B23847C3F00CED6C1 /* FetchRequestHistoryUseCase.swift */,
+				4B8580F7238DD2C500C1B779 /* FetchCompanyInformationUseCase.swift */,
+				4B8580FF238ED76300C1B779 /* AcceptJobRequestUseCase.swift */,
+				4BDD969D23847C6600CED6C1 /* UserLogOffUseCase.swift */,
+				4B5ECA4423888E7D005FEE4A /* FilterPredicates.swift */,
 			);
 			path = usecases;
 			sourceTree = "<group>";
@@ -202,6 +277,9 @@
 			isa = PBXGroup;
 			children = (
 				4B72810B237B3B67006E4605 /* User.swift */,
+				4BDD9695238390FA00CED6C1 /* JobRequest.swift */,
+				4B11F7DF23931C8200F21A8E /* JobRequestHistory.swift */,
+				4B8580F9238DD3E900C1B779 /* Company.swift */,
 			);
 			path = data;
 			sourceTree = "<group>";
@@ -220,9 +298,11 @@
 			isa = PBXGroup;
 			children = (
 				4BDD965B2383024300CED6C1 /* BaseNavigationViewController.swift */,
+				4BDD969723845D3500CED6C1 /* BaseTabBarViewController.swift */,
 				4B72812B237C5C23006E4605 /* BaseTableViewController.swift */,
-				4B72812D237C5D39006E4605 /* BaseTableViewCell.swift */,
 				4BF983922381A86B0091915D /* BaseViewController.swift */,
+				4B72812D237C5D39006E4605 /* BaseTableViewCell.swift */,
+				4BDD9661238339BE00CED6C1 /* BaseInteractor.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -246,15 +326,98 @@
 			path = di;
 			sourceTree = "<group>";
 		};
+		4B8580EB238D876300C1B779 /* requestlists */ = {
+			isa = PBXGroup;
+			children = (
+				4B8580ED238D878B00C1B779 /* JobRequestHistoryViewController.swift */,
+				4B8580FB238E27FC00C1B779 /* JobRequestHistoryInteractor.swift */,
+				4B8580FD238E2FAB00C1B779 /* JobRequestHistoryPresenter.swift */,
+				4B11F7DD2393150800F21A8E /* JobRequestHistoryDataSource.swift */,
+			);
+			path = requestlists;
+			sourceTree = "<group>";
+		};
+		4B8580EC238D876A00C1B779 /* requestdetails */ = {
+			isa = PBXGroup;
+			children = (
+				4B11F7E1239327F700F21A8E /* RequestHistoryDetailViewController.swift */,
+				4B8CD1632395B02A005556A3 /* RequestHistoryDetailInteractor.swift */,
+				4B8CD1612395B019005556A3 /* RequestHistoryDetailPresenter.swift */,
+			);
+			path = requestdetails;
+			sourceTree = "<group>";
+		};
+		4BB073282389ACD2007402AB /* xib */ = {
+			isa = PBXGroup;
+			children = (
+				4B756F442386E19900566118 /* ProdriveJobRequestCell.xib */,
+				4B756F462386E1C300566118 /* ProdriveJobRequestCell.swift */,
+			);
+			path = xib;
+			sourceTree = "<group>";
+		};
+		4BB0732B2389D3B3007402AB /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4BDD96592382FE0400CED6C1 /* Storyboarded.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		4BB073322389D9A7007402AB /* support */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = support;
+			sourceTree = "<group>";
+		};
+		4BB073332389D9C3007402AB /* history */ = {
+			isa = PBXGroup;
+			children = (
+				4B8580EB238D876300C1B779 /* requestlists */,
+				4B8580EC238D876A00C1B779 /* requestdetails */,
+			);
+			path = history;
+			sourceTree = "<group>";
+		};
+		4BB073342389DA0E007402AB /* requestlists */ = {
+			isa = PBXGroup;
+			children = (
+				4B756F0C238482EB00566118 /* JobRequestViewController.swift */,
+				4B756F0E2384830600566118 /* JobRequestInteractor.swift */,
+				4B756F102384832E00566118 /* JobRequestPresenter.swift */,
+				4BB072F623899B07007402AB /* JobRequestDataSource.swift */,
+			);
+			path = requestlists;
+			sourceTree = "<group>";
+		};
 		4BDD96522382541100CED6C1 /* scene */ = {
 			isa = PBXGroup;
 			children = (
 				4B728129237C5C05006E4605 /* login */,
 				4BF98272237F1F070091915D /* userprofile */,
 				4BF98270237F1E9A0091915D /* requests */,
-				4BF98271237F1ECA0091915D /* requestdetails */,
+				4BB073332389D9C3007402AB /* history */,
+				4BB073322389D9A7007402AB /* support */,
 			);
 			path = scene;
+			sourceTree = "<group>";
+		};
+		4BDD9663238341E000CED6C1 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				4BDD9664238341F200CED6C1 /* keychain */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		4BDD9664238341F200CED6C1 /* keychain */ = {
+			isa = PBXGroup;
+			children = (
+				4BDD96652383420400CED6C1 /* KeychainPasswordItem.swift */,
+				4BDD96672383422A00CED6C1 /* KeychainConfiguration.swift */,
+			);
+			path = keychain;
 			sourceTree = "<group>";
 		};
 		4BF9826F237F138E0091915D /* application */ = {
@@ -270,6 +433,8 @@
 		4BF98270237F1E9A0091915D /* requests */ = {
 			isa = PBXGroup;
 			children = (
+				4BB073342389DA0E007402AB /* requestlists */,
+				4BF98271237F1ECA0091915D /* requestdetails */,
 			);
 			path = requests;
 			sourceTree = "<group>";
@@ -277,8 +442,12 @@
 		4BF98271237F1ECA0091915D /* requestdetails */ = {
 			isa = PBXGroup;
 			children = (
+				4BB0732C2389D94C007402AB /* RequestDetailViewController.swift */,
+				4BB0732E2389D977007402AB /* RequestDetailInteractor.swift */,
+				4BB073302389D995007402AB /* RequestDetailPresenter.swift */,
 			);
-			path = requestdetails;
+			name = requestdetails;
+			path = ../requestdetails;
 			sourceTree = "<group>";
 		};
 		4BF98272237F1F070091915D /* userprofile */ = {
@@ -287,6 +456,7 @@
 				4BDD964C2382502100CED6C1 /* UserProfileViewController.swift */,
 				4BDD964E2382507B00CED6C1 /* UserProfileViewInteractor.swift */,
 				4BDD96502382508C00CED6C1 /* UserProfileViewPresenter.swift */,
+				4BDD969F23847D2700CED6C1 /* UserProfileViewCoordinator.swift */,
 			);
 			path = userprofile;
 			sourceTree = "<group>";
@@ -294,8 +464,10 @@
 		4BF98275237F26D20091915D /* customui */ = {
 			isa = PBXGroup;
 			children = (
+				4BB073282389ACD2007402AB /* xib */,
 				4BF98276237F26E80091915D /* ProdriveButton.swift */,
 				4BF9827A237F31620091915D /* ProdriveTextField.swift */,
+				4BB073292389ADF1007402AB /* ProdriveImage.swift */,
 			);
 			path = customui;
 			sourceTree = "<group>";
@@ -303,10 +475,10 @@
 		4BF983912381A82E0091915D /* storyboard */ = {
 			isa = PBXGroup;
 			children = (
+				4BB0732B2389D3B3007402AB /* extensions */,
 				4B7280E9237B113C006E4605 /* Assets.xcassets */,
-				4BDD96592382FE0400CED6C1 /* Storyboarded.swift */,
-				4B7280EB237B113C006E4605 /* LaunchScreen.storyboard */,
 				4B7280E6237B113A006E4605 /* Main.storyboard */,
+				4B5ECA4023887A4A005FEE4A /* LaunchScreen.storyboard */,
 			);
 			path = storyboard;
 			sourceTree = "<group>";
@@ -314,7 +486,10 @@
 		4BF983942381A8A60091915D /* coordinator */ = {
 			isa = PBXGroup;
 			children = (
-				4BF982B8237F47820091915D /* MainCoordinatorImpl.swift */,
+				4BF982B8237F47820091915D /* ApplicationCoordinator.swift */,
+				4B8580E9238CC20F00C1B779 /* UserProfileCoordinator.swift */,
+				4B8580F5238D8B0400C1B779 /* JobRequestCoordinator.swift */,
+				4B8580EF238D888300C1B779 /* JobRequestHistoryCoordinator.swift */,
 			);
 			path = coordinator;
 			sourceTree = "<group>";
@@ -420,8 +595,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B72812F237C6428006E4605 /* Main.storyboard in Resources */,
+				4B756F452386E19900566118 /* ProdriveJobRequestCell.xib in Resources */,
 				4BDD96582382EA2600CED6C1 /* GoogleService-Info.plist in Resources */,
-				4B7280ED237B113C006E4605 /* LaunchScreen.storyboard in Resources */,
+				4B5ECA4123887A4A005FEE4A /* LaunchScreen.storyboard in Resources */,
 				4B7280EA237B113C006E4605 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,30 +661,63 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B8580F1238D893E00C1B779 /* JobRequestViewController.swift in Sources */,
 				4BF9826E237F0FDC0091915D /* LoginPresenter.swift in Sources */,
+				4BB0732D2389D94C007402AB /* RequestDetailViewController.swift in Sources */,
 				4BDD964D2382502100CED6C1 /* UserProfileViewController.swift in Sources */,
+				4B8580F0238D888300C1B779 /* JobRequestHistoryCoordinator.swift in Sources */,
+				4B858100238ED76300C1B779 /* AcceptJobRequestUseCase.swift in Sources */,
 				4BDD965A2382FE0400CED6C1 /* Storyboarded.swift in Sources */,
 				4BF983902380F2B10091915D /* ThreadScheduler.swift in Sources */,
 				4B728107237B3308006E4605 /* BaseObservable.swift in Sources */,
 				4BDD96512382508C00CED6C1 /* UserProfileViewPresenter.swift in Sources */,
 				4B7280E5237B113A006E4605 /* LoginViewController.swift in Sources */,
+				4BDD969E23847C6600CED6C1 /* UserLogOffUseCase.swift in Sources */,
 				4BF983932381A86B0091915D /* BaseViewController.swift in Sources */,
+				4BB0732F2389D977007402AB /* RequestDetailInteractor.swift in Sources */,
+				4B8CD1642395B02A005556A3 /* RequestHistoryDetailInteractor.swift in Sources */,
 				4B728145237DC263006E4605 /* URLRequestFactory.swift in Sources */,
-				4BF982B9237F47820091915D /* MainCoordinatorImpl.swift in Sources */,
+				4B8CD1622395B019005556A3 /* RequestHistoryDetailPresenter.swift in Sources */,
+				4BF982B9237F47820091915D /* ApplicationCoordinator.swift in Sources */,
+				4B11F7E2239327F700F21A8E /* RequestHistoryDetailViewController.swift in Sources */,
+				4B8580EA238CC20F00C1B779 /* UserProfileCoordinator.swift in Sources */,
 				4BDD965E2383051400CED6C1 /* Injector.swift in Sources */,
 				4B72810C237B3B67006E4605 /* User.swift in Sources */,
+				4B8580EE238D878B00C1B779 /* JobRequestHistoryViewController.swift in Sources */,
+				4BB072F723899B07007402AB /* JobRequestDataSource.swift in Sources */,
 				4BF98277237F26E80091915D /* ProdriveButton.swift in Sources */,
 				4BDD965C2383024300CED6C1 /* BaseNavigationViewController.swift in Sources */,
 				4B728135237CAA5D006E4605 /* FetchFireBaseTokenUseCase.swift in Sources */,
+				4BB073312389D995007402AB /* RequestDetailPresenter.swift in Sources */,
+				4B756F0F2384830600566118 /* JobRequestInteractor.swift in Sources */,
 				4B728117237B58BD006E4605 /* FetchUserProfileUseCase.swift in Sources */,
 				4BF9827B237F31620091915D /* ProdriveTextField.swift in Sources */,
+				4BDD9662238339BE00CED6C1 /* BaseInteractor.swift in Sources */,
+				4BDD969C23847C3F00CED6C1 /* FetchRequestHistoryUseCase.swift in Sources */,
+				4B11F7E023931C8200F21A8E /* JobRequestHistory.swift in Sources */,
 				4B72812E237C5D39006E4605 /* BaseTableViewCell.swift in Sources */,
+				4B8580FE238E2FAB00C1B779 /* JobRequestHistoryPresenter.swift in Sources */,
 				4B7280E3237B113A006E4605 /* AppDelegate.swift in Sources */,
+				4B756F472386E1C300566118 /* ProdriveJobRequestCell.swift in Sources */,
+				4BDD96A023847D2700CED6C1 /* UserProfileViewCoordinator.swift in Sources */,
+				4B8580FA238DD3E900C1B779 /* Company.swift in Sources */,
+				4B8580FC238E27FC00C1B779 /* JobRequestHistoryInteractor.swift in Sources */,
+				4B8580F8238DD2C500C1B779 /* FetchCompanyInformationUseCase.swift in Sources */,
+				4BDD9696238390FA00CED6C1 /* JobRequest.swift in Sources */,
 				4B728109237B3B3B006E4605 /* LoginInteractor.swift in Sources */,
+				4BB0732A2389ADF1007402AB /* ProdriveImage.swift in Sources */,
 				4B728143237DC119006E4605 /* CompositionRoot.swift in Sources */,
+				4BDD969823845D3500CED6C1 /* BaseTabBarViewController.swift in Sources */,
+				4B756F112384832E00566118 /* JobRequestPresenter.swift in Sources */,
 				4B72813E237DBD53006E4605 /* BaseNetworkSession.swift in Sources */,
+				4BDD96662383420400CED6C1 /* KeychainPasswordItem.swift in Sources */,
+				4B5ECA4523888E7D005FEE4A /* FilterPredicates.swift in Sources */,
 				4B728112237B3F86006E4605 /* Endpoints.swift in Sources */,
 				4BDD964F2382507B00CED6C1 /* UserProfileViewInteractor.swift in Sources */,
+				4BDD969A23847C2700CED6C1 /* FetchRequestUseCase.swift in Sources */,
+				4B8580F6238D8B0500C1B779 /* JobRequestCoordinator.swift in Sources */,
+				4B11F7DE2393150800F21A8E /* JobRequestHistoryDataSource.swift in Sources */,
+				4BDD96682383422A00CED6C1 /* KeychainConfiguration.swift in Sources */,
 				4B72812C237C5C23006E4605 /* BaseTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -538,14 +747,6 @@
 				4B7280E7237B113A006E4605 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		4B7280EB237B113C006E4605 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4B7280EC237B113C006E4605 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -675,6 +876,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AJ8S9UW9R5;
 				INFOPLIST_FILE = "$(SRCROOT)/Prodrivetime_ios/application/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -694,6 +896,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AJ8S9UW9R5;
 				INFOPLIST_FILE = "$(SRCROOT)/Prodrivetime_ios/application/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

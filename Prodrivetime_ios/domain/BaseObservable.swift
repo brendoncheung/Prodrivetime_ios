@@ -11,25 +11,25 @@ import Foundation
 protocol Observable: class {
     associatedtype T
     func registerObserver(observer: T)
-    func unregisterObserver(observer: T)
-    func getObservers() -> [T]
+    func unregisterObserver()
+    func getObserver() -> T?
 }
 
 class BaseObservable <T>: Observable {
     
-    private var observers = [T]()
+    private var observer: T?
     
     func registerObserver(observer: T) {
         
-        observers.append(observer)
+        self.observer = observer
     }
     
-    func unregisterObserver(observer: T) {
-        // TODO:
+    func unregisterObserver() {
+        self.observer = nil
     }
     
-    func getObservers() -> [T] {
-        return observers
+    func getObserver() -> T? {
+        return observer
     }
     
     

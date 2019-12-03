@@ -9,8 +9,10 @@
 import Foundation
 import UIKit
 
+
 class ProdriveTextField: UITextField {
     
+
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
             self.layer.cornerRadius = cornerRadius
@@ -29,5 +31,18 @@ class ProdriveTextField: UITextField {
             self.layer.borderColor  = borderColor.cgColor
         }
     }
+    
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 15, height: frame.height))
+        
+        leftView = paddingView
+        leftViewMode = UITextField.ViewMode.always
+    }
+    
+    
     
 }

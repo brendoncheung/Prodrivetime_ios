@@ -12,7 +12,12 @@ import Foundation
 protocol FetchUserProfileUseCaseDelegate {
     func onUserProfileFetching()
     func onUserProfileFetchSuccessful(user: User)
-    func onUserProfileFetchFailed(error: Error?)
+    func onUserProfileFetchFailed(error: FetchUserProfileUseCaseError)
+}
+
+enum FetchUserProfileUseCaseError: Error {
+    case decodeJsonUnsucessful
+    case requestFailed
 }
 
 class FetchUserProfileUseCase: BaseObservable<FetchUserProfileUseCaseDelegate>, BaseSessionCallback {
@@ -24,31 +29,27 @@ class FetchUserProfileUseCase: BaseObservable<FetchUserProfileUseCaseDelegate>, 
     }
     
     func fetchUserProfileAndNotify(with request: URLRequest) {
-        log.debug(getObservers().count)
         session.registerObserver(observer: self)
         session.makeRequest(with: request)?.resume()
-        
-        getObservers().forEach { (callback) in
-            callback.onUserProfileFetching()
-        }
+        getObserver()?.onUserProfileFetching()
     }
     
     //---------session callback---------
     
     func onData(data: Data) {
-        DispatchQueue.main.async {
-            self.getObservers().forEach { (callback) in
-                callback.onUserProfileFetchSuccessful(user: User())
-            }
+        do {
+            let user = try JSONDecoder().decode(User.self, from: data)
+            self.getObserver()?.onUserProfileFetchSuccessful(user: user)
+            
+        } catch {
+            getObserver()?.onUserProfileFetchFailed(error: .decodeJsonUnsucessful)
         }
     }
     
-    func onError(msg: String, err: Error?) {
-        DispatchQueue.main.async {
-            self.getObservers().forEach { (callback) in
-                callback.onUserProfileFetchFailed(error: err)
-            }
-        }
+    func onError(err: BaseNetworkSessionError) {
+        
+        self.getObserver()?.onUserProfileFetchFailed(error: .requestFailed)
+        
     }
     
     func onResponse(response: HTTPURLResponse) {

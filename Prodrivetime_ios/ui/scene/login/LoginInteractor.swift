@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol LoginInteractor {
+protocol LoginInteractor: BaseInteractor {
     func fetchUserProfileAndNotify(email: String?, password: String?)
 }
 
-class LoginInteractorImpl: LoginInteractor {
+class LoginInteractorImpl: BaseInteractor, LoginInteractor {
 
     private let loginUseCase: FetchUserProfileUseCase
     private let firebaseTokenUseCase: FetchFireBaseTokenUseCase
@@ -31,9 +31,16 @@ class LoginInteractorImpl: LoginInteractor {
         self.firebaseTokenUseCase = firebaseTokenUseCase
         self.factory = factory
         self.presenter = presenter
-        
+    }
+    
+    func onStart() {
         loginUseCase.registerObserver(observer: self)
         firebaseTokenUseCase.registerObserver(observer: self)
+    }
+    
+    func onStop() {
+        loginUseCase.unregisterObserver()
+        firebaseTokenUseCase.unregisterObserver()
     }
 
     func fetchUserProfileAndNotify(email: String?, password: String?) {
@@ -53,8 +60,16 @@ class LoginInteractorImpl: LoginInteractor {
 
 extension LoginInteractorImpl: FetchUserProfileUseCaseDelegate {
     
-    func onUserProfileFetchFailed(error: Error?) {
-        presenter.userProfileError(err: error)
+    func onUserProfileFetchFailed(error: FetchUserProfileUseCaseError) {
+        
+        switch error {
+            
+        case .decodeJsonUnsucessful :
+            presenter.userProfileError(err: .decodeJsonUnsucessful)
+        
+        case .requestFailed :
+            presenter.userProfileError(err: .requestFailed)
+        }
     }
     
     func onUserProfileFetchSuccessful(user: User) {
@@ -62,7 +77,7 @@ extension LoginInteractorImpl: FetchUserProfileUseCaseDelegate {
     }
     
     func onUserProfileFetching() {
-        presenter.fetching()
+        presenter.userProfileFetching()
     }
 }
 

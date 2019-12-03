@@ -9,10 +9,14 @@
 import Foundation
 
 protocol BaseSessionCallback {
-    
     func onData(data: Data)
     func onResponse(response: HTTPURLResponse)
-    func onError(msg: String, err: Error?)
+    func onError(err: BaseNetworkSessionError)
+}
+
+enum BaseNetworkSessionError {
+    case dataIsEmpty
+    case requestFailed
 }
 
 class BaseNetworkSession: BaseObservable<BaseSessionCallback> {
@@ -31,32 +35,24 @@ class BaseNetworkSession: BaseObservable<BaseSessionCallback> {
 
         let task = session.dataTask(with: request) { (data, response, error) in
             
-            guard let httpResponse = response as? HTTPURLResponse else {
-                return
+            DispatchQueue.main.async {
+                guard let httpResponse = response as? HTTPURLResponse else {
+                    return
+                }
+                
+                guard error == nil else {
+                    self.getObserver()?.onError(err: .requestFailed)
+                    return
+                }
+                
+                guard let data = data else {
+                    self.getObserver()?.onError(err: .dataIsEmpty)
+                    return
+                }
+                
+                self.getObserver()?.onResponse(response: httpResponse)
+                self.getObserver()?.onData(data: data)
             }
-            
-            guard error == nil else {
-                print("1")
-                self.getObservers().forEach({ (callback) in
-                    callback.onError(msg: error.debugDescription, err: error)
-                })
-                return
-            }
-            
-            guard let data = data else {
-                print("2")
-                self.getObservers().forEach({ (callback) in
-                    callback.onError(msg: "Empty data", err: error)
-                })
-                return
-            }
-            self.getObservers().forEach({ (callback) in
-                callback.onResponse(response: httpResponse)
-            })
-            
-            self.getObservers().forEach({ (callback) in
-                callback.onData(data: data)
-            })
         }
         return task
     }

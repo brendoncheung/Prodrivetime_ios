@@ -41,7 +41,7 @@ class URLRequestFactory {
         let token_param = "token"
         
         guard let url = createURL(api: .Login) else {
-            print("createLoginURLRequest failed")
+            log.debug("createLoginURLRequest failed")
             return nil
         }
         
@@ -52,7 +52,47 @@ class URLRequestFactory {
         return request
     }
     
+    func createJobRequestURLRequest(email: String) -> URLRequest? {
+        
+        
+        guard let url = createURL(api: .LoadRquest) else {
+            log.debug("createJobRequestURLRequest failed")
+            return nil
+        }
+        
+        var request = createPOSTRequest(url: url)
+        
+        request.httpBody = "driverEmail=\(email)".data(using: .utf8)
+        
+        return request
+        
+    }
     
+    func createAcceptJobRequestURLRequest(requestId: String, driverEmail: String, driverId: String) -> URLRequest? {
+        
+        guard let url = createURL(api: .AcceptRequest) else {
+            log.debug("createAcceptJobRequestURLRequest failed")
+            return nil
+        }
+        
+        var request = createPOSTRequest(url: url)
+        request.httpBody = "requestId=\(requestId)&driverEmail=\(driverEmail)&driverId=\(driverId)".data(using: .utf8)
+        log.debug("requestId=\(requestId)&driverEmail=\(driverEmail)&driverId=\(driverId)")
+        return request
+        
+    }
+    
+    func createJobRequestHistoryURLRequest(email: String) -> URLRequest? {
+        guard let url = createURL(api: .LoadHistory) else {
+            log.debug("createJobRequestHistoryURLRequest failed")
+            return nil
+        }
+        
+        var request = createPOSTRequest(url: url)
+        request.httpBody = "driverEmail=\(email)".data(using: .utf8)
+        
+        return request
+    }
     
     fileprivate func createURL(api: API) -> URL? {
         
