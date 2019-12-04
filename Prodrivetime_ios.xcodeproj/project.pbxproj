@@ -44,6 +44,7 @@
 		4B858100238ED76300C1B779 /* AcceptJobRequestUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8580FF238ED76300C1B779 /* AcceptJobRequestUseCase.swift */; };
 		4B8CD1622395B019005556A3 /* RequestHistoryDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8CD1612395B019005556A3 /* RequestHistoryDetailPresenter.swift */; };
 		4B8CD1642395B02A005556A3 /* RequestHistoryDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8CD1632395B02A005556A3 /* RequestHistoryDetailInteractor.swift */; };
+		4B8CD1C223975910005556A3 /* Authentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8CD1C123975910005556A3 /* Authentication.swift */; };
 		4BB072F723899B07007402AB /* JobRequestDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB072F623899B07007402AB /* JobRequestDataSource.swift */; };
 		4BB0732A2389ADF1007402AB /* ProdriveImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB073292389ADF1007402AB /* ProdriveImage.swift */; };
 		4BB0732D2389D94C007402AB /* RequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BB0732C2389D94C007402AB /* RequestDetailViewController.swift */; };
@@ -126,6 +127,7 @@
 		4B8580FF238ED76300C1B779 /* AcceptJobRequestUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AcceptJobRequestUseCase.swift; sourceTree = "<group>"; };
 		4B8CD1612395B019005556A3 /* RequestHistoryDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHistoryDetailPresenter.swift; sourceTree = "<group>"; };
 		4B8CD1632395B02A005556A3 /* RequestHistoryDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHistoryDetailInteractor.swift; sourceTree = "<group>"; };
+		4B8CD1C123975910005556A3 /* Authentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authentication.swift; sourceTree = "<group>"; };
 		4BB072F623899B07007402AB /* JobRequestDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JobRequestDataSource.swift; path = ../JobRequestDataSource.swift; sourceTree = "<group>"; };
 		4BB073292389ADF1007402AB /* ProdriveImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdriveImage.swift; sourceTree = "<group>"; };
 		4BB0732C2389D94C007402AB /* RequestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetailViewController.swift; sourceTree = "<group>"; };
@@ -202,10 +204,10 @@
 			children = (
 				4BF9826F237F138E0091915D /* application */,
 				4B72810A237B3B5A006E4605 /* domain */,
+				4BDD9663238341E000CED6C1 /* utils */,
 				4BF983912381A82E0091915D /* storyboard */,
 				4B728103237B2FA2006E4605 /* networking */,
 				4B728102237B1194006E4605 /* ui */,
-				4BDD9663238341E000CED6C1 /* utils */,
 				4BDD96572382EA2600CED6C1 /* GoogleService-Info.plist */,
 			);
 			path = Prodrivetime_ios;
@@ -407,6 +409,7 @@
 			isa = PBXGroup;
 			children = (
 				4BDD9664238341F200CED6C1 /* keychain */,
+				4B8CD1C123975910005556A3 /* Authentication.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -689,6 +692,7 @@
 				4BDD965C2383024300CED6C1 /* BaseNavigationViewController.swift in Sources */,
 				4B728135237CAA5D006E4605 /* FetchFireBaseTokenUseCase.swift in Sources */,
 				4BB073312389D995007402AB /* RequestDetailPresenter.swift in Sources */,
+				4B8CD1C223975910005556A3 /* Authentication.swift in Sources */,
 				4B756F0F2384830600566118 /* JobRequestInteractor.swift in Sources */,
 				4B728117237B58BD006E4605 /* FetchUserProfileUseCase.swift in Sources */,
 				4BF9827B237F31620091915D /* ProdriveTextField.swift in Sources */,

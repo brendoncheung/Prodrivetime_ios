@@ -34,11 +34,14 @@ class ApplicationCoordinator: Coordinator {
     
     func onStart() {
         let rootController = LoginViewController.instantiate()
-
         injector.inject(loginViewController: rootController)
-        
         window.rootViewController = rootController
         window.makeKeyAndVisible()
+    }
+    
+    func pushToLoginController() {
+        
+        
     }
     
     func pushToMainTabBarController(user: User) {

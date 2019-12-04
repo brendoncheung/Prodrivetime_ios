@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import SafariServices
 
 protocol LoginInteractor: BaseInteractor {
-    func fetchUserProfileAndNotify(email: String?, password: String?)
+    func handleLoginButtonTapped(email: String?, password: String?)
+    func handleSwitchState(isOn: Bool)
+    func handleSignUpButtonTapped()
 }
 
 class LoginInteractorImpl: BaseInteractor, LoginInteractor {
@@ -43,7 +46,7 @@ class LoginInteractorImpl: BaseInteractor, LoginInteractor {
         firebaseTokenUseCase.unregisterObserver()
     }
 
-    func fetchUserProfileAndNotify(email: String?, password: String?) {
+    func handleLoginButtonTapped(email: String?, password: String?) {
 
         guard email?.isEmpty == false,
             password?.isEmpty == false else {
@@ -55,6 +58,17 @@ class LoginInteractorImpl: BaseInteractor, LoginInteractor {
         self.password = password
         
         firebaseTokenUseCase.fetchFireBaseTokenAndNotify()
+    }
+    
+    func handleSwitchState(isOn: Bool) {
+        
+    }
+    
+    func handleSignUpButtonTapped() {
+        guard let url = URL(string: "https://www.prodrivetime.com/driver/driverRegister") else { return }
+        
+        presenter.handleSignUp(url: url)
+        
     }
 }
 

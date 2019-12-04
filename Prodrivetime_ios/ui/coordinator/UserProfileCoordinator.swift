@@ -30,7 +30,7 @@ class UserProfileCoordinator: Coordinator {
         guard let userProfile = userProfile else { fatalError("user profile cant be nil") }
         
         rootController.tabBarItem = UITabBarItem(title: TAB_TITLE, image: UIImage(named: IMAGE_NAME), tag: TABBAR_TAG)
-        rootController.title = "Profile"
+        rootController.title = TAB_TITLE
         rootController.userProfile = userProfile
         navigationController.pushViewController(rootController, animated: true)
     }

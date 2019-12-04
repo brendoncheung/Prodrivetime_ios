@@ -21,11 +21,11 @@
                                 <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PdR-3w-3x0">
-                                <rect key="frame" x="16" y="463" width="343" height="225"/>
+                                <rect key="frame" x="16" y="357" width="343" height="351"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="611thesolutions@gmail.com" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="MXk-g2-LIW" customClass="ProdriveTextField" customModule="Prodrivetime_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="54"/>
-                                        <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" id="q4A-SD-GRk"/>
                                         </constraints>
@@ -52,7 +52,7 @@
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="testpassword" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ugF-eF-6Xw" customClass="ProdriveTextField" customModule="Prodrivetime_ios" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="84" width="343" height="54"/>
-                                        <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="54" id="LVg-Yq-RfG"/>
                                         </constraints>
@@ -71,8 +71,27 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="mfH-iy-LI7">
+                                        <rect key="frame" x="0.0" y="168" width="343" height="31"/>
+                                        <subviews>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zHZ-ZH-cjc">
+                                                <rect key="frame" x="0.0" y="0.0" width="158.66666666666666" height="31"/>
+                                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <color key="onTintColor" red="1" green="0.6705882353" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <connections>
+                                                    <action selector="onSwitchTapped:" destination="fe2-uZ-ZcN" eventType="valueChanged" id="8QI-KF-qbk"/>
+                                                </connections>
+                                            </switch>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember me" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMB-iN-iTW">
+                                                <rect key="frame" x="186.66666666666663" y="0.0" width="156.33333333333337" height="31"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <color key="textColor" red="1" green="0.6705882352941176" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPR-xz-YTb" customClass="ProdriveButton" customModule="Prodrivetime_ios" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="168" width="343" height="57"/>
+                                        <rect key="frame" x="0.0" y="229" width="343" height="57"/>
                                         <color key="backgroundColor" red="1" green="0.6705882352941176" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="57" id="s0a-op-wh7"/>
@@ -92,13 +111,24 @@
                                             <action selector="onLoginButtonTapped:" destination="fe2-uZ-ZcN" eventType="touchUpInside" id="hwT-Mt-Z0l"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gp3-nN-TiL">
+                                        <rect key="frame" x="0.0" y="316" width="343" height="35"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                        <state key="normal" title="Sign up to prodrivetime!">
+                                            <color key="titleColor" red="1" green="0.6705882353" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onSignUpButtonTapped:" destination="fe2-uZ-ZcN" eventType="touchUpInside" id="bco-UV-q3q"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="cBg-gl-MhS">
                                 <rect key="frame" x="94" y="86" width="188" height="57"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign In" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3s-yZ-BcM">
-                                <rect key="frame" x="16" y="410.66666666666669" width="343" height="31.333333333333314"/>
+                                <rect key="frame" x="16" y="304.66666666666669" width="343" height="31.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -108,7 +138,7 @@
                         <constraints>
                             <constraint firstItem="Lgi-5m-HMb" firstAttribute="trailing" secondItem="XBI-Ar-QUF" secondAttribute="trailing" id="1st-Mf-scd"/>
                             <constraint firstItem="Lgi-5m-HMb" firstAttribute="leading" secondItem="XBI-Ar-QUF" secondAttribute="leading" id="5Y3-e9-cAy"/>
-                            <constraint firstItem="XBI-Ar-QUF" firstAttribute="bottom" secondItem="PdR-3w-3x0" secondAttribute="bottom" constant="90" id="7vO-Z4-CW0"/>
+                            <constraint firstItem="XBI-Ar-QUF" firstAttribute="bottom" secondItem="PdR-3w-3x0" secondAttribute="bottom" constant="70" id="7vO-Z4-CW0"/>
                             <constraint firstItem="XBI-Ar-QUF" firstAttribute="trailing" secondItem="Z3s-yZ-BcM" secondAttribute="trailing" constant="16" id="ByN-Bm-Xex"/>
                             <constraint firstItem="XBI-Ar-QUF" firstAttribute="trailing" secondItem="cBg-gl-MhS" secondAttribute="trailing" constant="93" id="Ket-OR-aft"/>
                             <constraint firstItem="PdR-3w-3x0" firstAttribute="leading" secondItem="XBI-Ar-QUF" secondAttribute="leading" constant="16" id="OKa-nS-vx8"/>
@@ -126,6 +156,7 @@
                         <outlet property="emailTextField" destination="MXk-g2-LIW" id="eKt-Tf-qOF"/>
                         <outlet property="loginButton" destination="UPR-xz-YTb" id="a1e-t6-pyY"/>
                         <outlet property="passwordTextField" destination="ugF-eF-6Xw" id="gWW-SA-fIG"/>
+                        <outlet property="rememberMeSwitch" destination="zHZ-ZH-cjc" id="I95-qI-E5a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ROq-j2-NZ9" userLabel="First Responder" sceneMemberID="firstResponder"/>

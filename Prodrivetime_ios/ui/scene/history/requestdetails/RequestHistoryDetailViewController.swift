@@ -44,15 +44,23 @@ class RequestHistoryDetailViewController: BaseViewController, Storyboarded {
         interactor?.onStart()
     }
     
+    // MARK: - Configuration
+
+    
     func configureInteractor() {
         guard let request = request else { fatalError("request cant be nil")}
         interactor?.bindRequest(request: request)
     }
     
+    // MARK: - IBActions
+    
     @IBAction func onCalledButtonTapped(_ sender: Any) {
         
     }
 }
+
+
+    // MARK: - Presenter callbacks
 
 extension RequestHistoryDetailViewController: RequestHistoryDetailViewMvc {
     

@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import SafariServices
 
 protocol LoginViewMvc: class {
     func showLoadingIndicator()
+    func showSignUpPage(url: URL)
     func hideLoadingIndicator()
     func showAlert(title: String, description: String)
 }
@@ -21,16 +23,30 @@ class LoginViewController: BaseViewController, Storyboarded {
     @IBOutlet weak var emailTextField: ProdriveTextField!
     @IBOutlet weak var passwordTextField: ProdriveTextField!
     @IBOutlet weak var loginButton: ProdriveButton!
+    @IBOutlet weak var rememberMeSwitch: UISwitch!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureSwitch()
+        
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction func onSwitchTapped(_ sender: UISwitch) {
+        interactor?.handleSwitchState(isOn: sender.isOn)
+        log.debug(sender.isOn)
     }
     
     @IBAction func onLoginButtonTapped(_ sender: Any) {
-        let email = emailTextField.text
-        let password = passwordTextField.text
-        interactor?.fetchUserProfileAndNotify(email: email, password: password)
+        interactor?.handleLoginButtonTapped(email: emailTextField.text, password: passwordTextField.text)
     }
+    
+    @IBAction func onSignUpButtonTapped(_ sender: Any) {
+        interactor?.handleSignUpButtonTapped()
+     }
+    
+    // MARK: - Lifecycle callback
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -41,7 +57,17 @@ class LoginViewController: BaseViewController, Storyboarded {
         super.viewWillDisappear(animated)
         interactor?.onStop()
     }
+    
+    // MARK: - Configuration
+    
+    private func configureSwitch() {
+        // making sure the switch is always in a defined state
+        rememberMeSwitch.setOn(true, animated: true)
+    }
+    
 }
+
+    // MARK: Presenter Callbacks
 
 extension LoginViewController: LoginViewMvc {
     
@@ -59,6 +85,11 @@ extension LoginViewController: LoginViewMvc {
         alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
         
         self.present(alert, animated: true)
+    }
+    
+    func showSignUpPage(url: URL) {
+        let svc = SFSafariViewController(url: url)
+        present(svc, animated: true, completion: nil)
     }
     
 }

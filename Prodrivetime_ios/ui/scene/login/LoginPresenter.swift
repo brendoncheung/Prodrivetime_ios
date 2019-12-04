@@ -13,6 +13,7 @@ protocol LoginPresenter {
     func userProfileFetched(user: User)
     func userProfileError(err: FetchUserProfileUseCaseError)
     func userProfileFetching()
+    func handleSignUp(url: URL)
 }
 
 class LoginPresenterImpl: LoginPresenter {
@@ -51,4 +52,7 @@ class LoginPresenterImpl: LoginPresenter {
         viewMvc?.showAlert(title: "Login Error", description: "Please enter your username and/or password")
     }
     
+    func handleSignUp(url: URL) {
+        viewMvc?.showSignUpPage(url: url)
+    }
 }
