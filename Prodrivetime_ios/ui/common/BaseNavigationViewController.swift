@@ -14,9 +14,17 @@ class BaseNavigationViewController: UINavigationController {
     let themeBlue = "0433FF"
     
     override func viewDidLoad() {
+        
+        navigationBar.prefersLargeTitles = true
+        
         navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor(red:0.02, green:0.20, blue:1.00, alpha:1.0)
         ]
+        
+        navigationBar.largeTitleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor(red:0.02, green:0.20, blue:1.00, alpha:1.0)
+        ]
+        
     }
 }
 

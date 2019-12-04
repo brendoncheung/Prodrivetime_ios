@@ -12,6 +12,8 @@
 		4B11F7E2239327F700F21A8E /* RequestHistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B11F7E1239327F700F21A8E /* RequestHistoryDetailViewController.swift */; };
 		4B2507D423980C59003B4094 /* ProdriveJobRequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2507D323980C59003B4094 /* ProdriveJobRequestCell.xib */; };
 		4B2507D623980C75003B4094 /* ProdriveJobRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507D523980C75003B4094 /* ProdriveJobRequestCell.swift */; };
+		4B2507D823980E7C003B4094 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507D723980E7C003B4094 /* SettingCoordinator.swift */; };
+		4B2507DB23980EC8003B4094 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507DA23980EC8003B4094 /* SettingTableViewController.swift */; };
 		4B5ECA4123887A4A005FEE4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B5ECA4023887A4A005FEE4A /* LaunchScreen.storyboard */; };
 		4B5ECA4523888E7D005FEE4A /* FilterPredicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5ECA4423888E7D005FEE4A /* FilterPredicates.swift */; };
 		4B7280E3237B113A006E4605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7280E2237B113A006E4605 /* AppDelegate.swift */; };
@@ -91,6 +93,8 @@
 		4B11F7E1239327F700F21A8E /* RequestHistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHistoryDetailViewController.swift; sourceTree = "<group>"; };
 		4B2507D323980C59003B4094 /* ProdriveJobRequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProdriveJobRequestCell.xib; sourceTree = "<group>"; };
 		4B2507D523980C75003B4094 /* ProdriveJobRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdriveJobRequestCell.swift; sourceTree = "<group>"; };
+		4B2507D723980E7C003B4094 /* SettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
+		4B2507DA23980EC8003B4094 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingTableViewController.swift; path = Prodrivetime_ios/ui/coordinator/SettingTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		4B5ECA4023887A4A005FEE4A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B5ECA4423888E7D005FEE4A /* FilterPredicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPredicates.swift; sourceTree = "<group>"; };
 		4B7280DF237B113A006E4605 /* Prodrivetime_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prodrivetime_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -186,6 +190,13 @@
 				4B2507D523980C75003B4094 /* ProdriveJobRequestCell.swift */,
 			);
 			path = "xib file";
+			sourceTree = "<group>";
+		};
+		4B2507D923980EA9003B4094 /* setting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = setting;
 			sourceTree = "<group>";
 		};
 		4B7280D6237B113A006E4605 = {
@@ -369,6 +380,7 @@
 		4BB073322389D9A7007402AB /* support */ = {
 			isa = PBXGroup;
 			children = (
+				4B2507DA23980EC8003B4094 /* SettingTableViewController.swift */,
 			);
 			path = support;
 			sourceTree = "<group>";
@@ -376,6 +388,7 @@
 		4BB073332389D9C3007402AB /* history */ = {
 			isa = PBXGroup;
 			children = (
+				4B2507D923980EA9003B4094 /* setting */,
 				4B8580EB238D876300C1B779 /* requestlists */,
 				4B8580EC238D876A00C1B779 /* requestdetails */,
 			);
@@ -493,6 +506,7 @@
 				4B8580E9238CC20F00C1B779 /* UserProfileCoordinator.swift */,
 				4B8580F5238D8B0400C1B779 /* JobRequestCoordinator.swift */,
 				4B8580EF238D888300C1B779 /* JobRequestHistoryCoordinator.swift */,
+				4B2507D723980E7C003B4094 /* SettingCoordinator.swift */,
 			);
 			path = coordinator;
 			sourceTree = "<group>";
@@ -670,6 +684,7 @@
 				4BDD964D2382502100CED6C1 /* UserProfileViewController.swift in Sources */,
 				4B8580F0238D888300C1B779 /* JobRequestHistoryCoordinator.swift in Sources */,
 				4B858100238ED76300C1B779 /* AcceptJobRequestUseCase.swift in Sources */,
+				4B2507DB23980EC8003B4094 /* SettingTableViewController.swift in Sources */,
 				4BDD965A2382FE0400CED6C1 /* Storyboarded.swift in Sources */,
 				4BF983902380F2B10091915D /* ThreadScheduler.swift in Sources */,
 				4B728107237B3308006E4605 /* BaseObservable.swift in Sources */,
@@ -701,6 +716,7 @@
 				4BDD969C23847C3F00CED6C1 /* FetchRequestHistoryUseCase.swift in Sources */,
 				4B11F7E023931C8200F21A8E /* JobRequestHistory.swift in Sources */,
 				4B72812E237C5D39006E4605 /* BaseTableViewCell.swift in Sources */,
+				4B2507D823980E7C003B4094 /* SettingCoordinator.swift in Sources */,
 				4B8580FE238E2FAB00C1B779 /* JobRequestHistoryPresenter.swift in Sources */,
 				4B7280E3237B113A006E4605 /* AppDelegate.swift in Sources */,
 				4BDD96A023847D2700CED6C1 /* UserProfileViewCoordinator.swift in Sources */,

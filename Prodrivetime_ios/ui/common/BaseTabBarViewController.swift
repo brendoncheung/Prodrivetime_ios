@@ -17,6 +17,7 @@ class BaseTabBarViewController: UITabBarController {
     let userProfileCoordinator = UserProfileCoordinator(navigationCoordinator: BaseNavigationViewController())
     let requestCoordinator = JobRequestCoordinator(navigationController: BaseNavigationViewController())
     let requestHistoryCoordinator = JobRequestHistoryCoordinator(navigationController: BaseNavigationViewController())
+    let settingCoordinator = SettingCoordinator(navigationController: BaseNavigationViewController())
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +28,13 @@ class BaseTabBarViewController: UITabBarController {
         configureUserProfileCoordinator()
         configureRequestCoordinator()
         configureRequestHistoryCoordinator()
+        configureSettingCoordinator()
         
         viewControllers = [
             userProfileCoordinator.navigationController,
             requestCoordinator.navigationController,
-            requestHistoryCoordinator.navigationController
+            requestHistoryCoordinator.navigationController,
+            settingCoordinator.navigationController
         ]
     }
     
@@ -56,6 +59,10 @@ class BaseTabBarViewController: UITabBarController {
         requestHistoryCoordinator.onStart()
     }
 
+    func configureSettingCoordinator() {
+        
+        settingCoordinator.onStart()
+    }
     
 
 }

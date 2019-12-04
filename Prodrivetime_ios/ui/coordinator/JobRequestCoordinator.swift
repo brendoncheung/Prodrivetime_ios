@@ -46,6 +46,7 @@ class JobRequestCoordinator: Coordinator {
         guard let injector = injector else { fatalError("inject cant be nil") }
         injector.inject(detailController: detailViewController)
         detailViewController.request = request
+        detailViewController.title = DETAIL_REQUEST_TAB_TITLE
         detailViewController.user = user
         detailViewController.rowSelected = rowSelected
         detailViewController.delegate = rootController
