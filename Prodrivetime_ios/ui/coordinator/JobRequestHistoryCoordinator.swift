@@ -12,6 +12,7 @@ import UIKit
 class JobRequestHistoryCoordinator: Coordinator {
     
     let JOB_REQUEST_TAB_TITLE = "History"
+    let DETAIL_REQUEST_TAB_TITLE = "Details"
     let IMAGE_NAME = "history_tab"
     let TABBAR_TAG = 3
     
@@ -44,7 +45,7 @@ class JobRequestHistoryCoordinator: Coordinator {
     func pushToDetailHistory(request: JobRequestHistory) {
         let detailVC = RequestHistoryDetailViewController.instantiate()
         injector?.inject(historyDetailController: detailVC)
-        detailVC.title = JOB_REQUEST_TAB_TITLE
+        detailVC.title = DETAIL_REQUEST_TAB_TITLE
         detailVC.request = request
         detailVC.user = user
         navigationController.pushViewController(detailVC, animated: true)

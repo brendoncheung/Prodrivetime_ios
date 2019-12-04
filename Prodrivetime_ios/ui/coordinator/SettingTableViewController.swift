@@ -9,15 +9,23 @@
 import Foundation
 import UIKit
 
+protocol SettingTableViewControllerViewMvc: class {
+    
+}
+
 class SettingTableViewController: UITableViewController, Storyboarded {
     
-    private var coordinator: SettingCoordinator?
+    var coordinator: SettingCoordinator?
+    var interactor: SettingInteractor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        log.debug(tableView.delegate)
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        guard let interactor = interactor else {return}
         
         switch indexPath.section {
             
@@ -47,10 +55,10 @@ class SettingTableViewController: UITableViewController, Storyboarded {
             switch indexPath.row {
                 
             case 0 : // Privacy Policy
-                log.debug("privacy policy")
+                coordinator?.pushToPrivacyPolicy()
                 
             case 1: // Logout
-                log.debug("logout")
+                coordinator?.pushToSignOut(logoutHandler: interactor.handleLogout)
                 
             default:
                 fatalError("not implemented")
@@ -59,9 +67,10 @@ class SettingTableViewController: UITableViewController, Storyboarded {
         default:
             fatalError("not implemented")
         }
-        
     }
-    
 }
 
-
+extension SettingTableViewController: SettingTableViewControllerViewMvc {
+    
+    
+}

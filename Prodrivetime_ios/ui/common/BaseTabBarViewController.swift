@@ -60,9 +60,9 @@ class BaseTabBarViewController: UITabBarController {
     }
 
     func configureSettingCoordinator() {
-        
+        guard let injector = injector else { fatalError("injector cant be nil")}
+        settingCoordinator.bindInjector(injector: injector)
         settingCoordinator.onStart()
     }
-    
 
 }

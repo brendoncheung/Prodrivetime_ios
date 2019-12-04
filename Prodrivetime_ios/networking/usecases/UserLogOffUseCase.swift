@@ -8,7 +8,22 @@
 
 import Foundation
 
+protocol UserLogOffUseCaseDelegate {
+    func onLogOutSuccessful()
+    func onLogOutFailed(error: UserLogOffUseCaseError)
+}
+
+enum UserLogOffUseCaseError: Error{
+    case logOutError
+}
+
 class UserLogOffUseCase {
+    
+    private let session: BaseNetworkSession
+    
+    init(session: BaseNetworkSession) {
+        self.session = session
+    }
     
     
 }

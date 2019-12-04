@@ -51,8 +51,12 @@ class Injector {
         let presenter = compositionRoot.getJobRequestHistoryDetailPresenter(viewMvc: historyDetailController)
         let interactor = compositionRoot.getJobRequestHistoryDetailsInteractor(presenter: presenter)
         historyDetailController.interactor = interactor
-            
-        
+    }
+    
+    func inject(settingController: SettingTableViewController) {
+        let presenter = compositionRoot.getSettingPresenter(viewMvc: settingController)
+        let interactor = compositionRoot.getSettingInteractor(presenter: presenter)
+        settingController.interactor = interactor
     }
     
     

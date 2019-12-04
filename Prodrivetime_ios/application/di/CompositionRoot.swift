@@ -91,6 +91,10 @@ class CompositionRoot {
         return FetchCompanyInformationUseCase(session: getBaseNetworkSession())
     }
     
+    func getUserLogOutUseCase() -> UserLogOffUseCase {
+        return UserLogOffUseCase(session: getBaseNetworkSession())
+    }
+    
     // MARK: - Presenter configuration
     
     func getLoginPresenter(viewMvc: LoginViewMvc, coordinator: ApplicationCoordinator) -> LoginPresenter {
@@ -115,6 +119,10 @@ class CompositionRoot {
     
     func getJobRequestHistoryDetailPresenter(viewMvc: RequestHistoryDetailViewController) -> RequestHistoryDetailPresenter   {
         return RequestHistoryDetailPresenterImpl(viewMvc: viewMvc)
+    }
+    
+    func getSettingPresenter(viewMvc: SettingTableViewController) -> SettingPresenter {
+        return SettingPresenterImpl(viewMvc: viewMvc)
     }
 
     // MARK: - Interactors configuration
@@ -141,6 +149,10 @@ class CompositionRoot {
     
     func getJobRequestHistoryDetailsInteractor(presenter: RequestHistoryDetailPresenter) -> RequestHistoryDetailInteractor {
         return RequestHistoryDetailInteractorImpl(fetchCompanyInformationUseCase: getFetchCompanyInformationUseCase(), presenter: presenter)
+    }
+    
+    func getSettingInteractor(presenter: SettingPresenter) -> SettingInteractor {
+        return SettingInteractorImpl(logOutUseCase: getUserLogOutUseCase(), presenter: presenter)
     }
     
     

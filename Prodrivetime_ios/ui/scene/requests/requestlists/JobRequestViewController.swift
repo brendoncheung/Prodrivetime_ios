@@ -49,6 +49,11 @@ class JobRequestViewController: BaseViewController, Storyboarded {
         startRequestFetch()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        interactor?.onStop()
+    }
+    
     func configureInteractor() {
         interactor?.bindEmail(email: email)
     }
