@@ -10,6 +10,8 @@
 		4B11F7DE2393150800F21A8E /* JobRequestHistoryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B11F7DD2393150800F21A8E /* JobRequestHistoryDataSource.swift */; };
 		4B11F7E023931C8200F21A8E /* JobRequestHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B11F7DF23931C8200F21A8E /* JobRequestHistory.swift */; };
 		4B11F7E2239327F700F21A8E /* RequestHistoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B11F7E1239327F700F21A8E /* RequestHistoryDetailViewController.swift */; };
+		4B2507D423980C59003B4094 /* ProdriveJobRequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B2507D323980C59003B4094 /* ProdriveJobRequestCell.xib */; };
+		4B2507D623980C75003B4094 /* ProdriveJobRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507D523980C75003B4094 /* ProdriveJobRequestCell.swift */; };
 		4B5ECA4123887A4A005FEE4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B5ECA4023887A4A005FEE4A /* LaunchScreen.storyboard */; };
 		4B5ECA4523888E7D005FEE4A /* FilterPredicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5ECA4423888E7D005FEE4A /* FilterPredicates.swift */; };
 		4B7280E3237B113A006E4605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7280E2237B113A006E4605 /* AppDelegate.swift */; };
@@ -30,8 +32,6 @@
 		4B728145237DC263006E4605 /* URLRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B728144237DC263006E4605 /* URLRequestFactory.swift */; };
 		4B756F0F2384830600566118 /* JobRequestInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B756F0E2384830600566118 /* JobRequestInteractor.swift */; };
 		4B756F112384832E00566118 /* JobRequestPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B756F102384832E00566118 /* JobRequestPresenter.swift */; };
-		4B756F452386E19900566118 /* ProdriveJobRequestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4B756F442386E19900566118 /* ProdriveJobRequestCell.xib */; };
-		4B756F472386E1C300566118 /* ProdriveJobRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B756F462386E1C300566118 /* ProdriveJobRequestCell.swift */; };
 		4B8580EA238CC20F00C1B779 /* UserProfileCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8580E9238CC20F00C1B779 /* UserProfileCoordinator.swift */; };
 		4B8580EE238D878B00C1B779 /* JobRequestHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8580ED238D878B00C1B779 /* JobRequestHistoryViewController.swift */; };
 		4B8580F0238D888300C1B779 /* JobRequestHistoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B8580EF238D888300C1B779 /* JobRequestHistoryCoordinator.swift */; };
@@ -89,6 +89,8 @@
 		4B11F7DD2393150800F21A8E /* JobRequestHistoryDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequestHistoryDataSource.swift; sourceTree = "<group>"; };
 		4B11F7DF23931C8200F21A8E /* JobRequestHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequestHistory.swift; sourceTree = "<group>"; };
 		4B11F7E1239327F700F21A8E /* RequestHistoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHistoryDetailViewController.swift; sourceTree = "<group>"; };
+		4B2507D323980C59003B4094 /* ProdriveJobRequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProdriveJobRequestCell.xib; sourceTree = "<group>"; };
+		4B2507D523980C75003B4094 /* ProdriveJobRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdriveJobRequestCell.swift; sourceTree = "<group>"; };
 		4B5ECA4023887A4A005FEE4A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B5ECA4423888E7D005FEE4A /* FilterPredicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPredicates.swift; sourceTree = "<group>"; };
 		4B7280DF237B113A006E4605 /* Prodrivetime_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prodrivetime_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,8 +116,6 @@
 		4B756F0C238482EB00566118 /* JobRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequestViewController.swift; sourceTree = "<group>"; };
 		4B756F0E2384830600566118 /* JobRequestInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequestInteractor.swift; sourceTree = "<group>"; };
 		4B756F102384832E00566118 /* JobRequestPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = JobRequestPresenter.swift; path = ../JobRequestPresenter.swift; sourceTree = "<group>"; };
-		4B756F442386E19900566118 /* ProdriveJobRequestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProdriveJobRequestCell.xib; sourceTree = "<group>"; };
-		4B756F462386E1C300566118 /* ProdriveJobRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdriveJobRequestCell.swift; sourceTree = "<group>"; };
 		4B8580E9238CC20F00C1B779 /* UserProfileCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileCoordinator.swift; sourceTree = "<group>"; };
 		4B8580ED238D878B00C1B779 /* JobRequestHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequestHistoryViewController.swift; sourceTree = "<group>"; };
 		4B8580EF238D888300C1B779 /* JobRequestHistoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRequestHistoryCoordinator.swift; sourceTree = "<group>"; };
@@ -179,6 +179,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B2507D223980C31003B4094 /* xib file */ = {
+			isa = PBXGroup;
+			children = (
+				4B2507D323980C59003B4094 /* ProdriveJobRequestCell.xib */,
+				4B2507D523980C75003B4094 /* ProdriveJobRequestCell.swift */,
+			);
+			path = "xib file";
+			sourceTree = "<group>";
+		};
 		4B7280D6237B113A006E4605 = {
 			isa = PBXGroup;
 			children = (
@@ -349,15 +358,6 @@
 			path = requestdetails;
 			sourceTree = "<group>";
 		};
-		4BB073282389ACD2007402AB /* xib */ = {
-			isa = PBXGroup;
-			children = (
-				4B756F442386E19900566118 /* ProdriveJobRequestCell.xib */,
-				4B756F462386E1C300566118 /* ProdriveJobRequestCell.swift */,
-			);
-			path = xib;
-			sourceTree = "<group>";
-		};
 		4BB0732B2389D3B3007402AB /* extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,7 +467,7 @@
 		4BF98275237F26D20091915D /* customui */ = {
 			isa = PBXGroup;
 			children = (
-				4BB073282389ACD2007402AB /* xib */,
+				4B2507D223980C31003B4094 /* xib file */,
 				4BF98276237F26E80091915D /* ProdriveButton.swift */,
 				4BF9827A237F31620091915D /* ProdriveTextField.swift */,
 				4BB073292389ADF1007402AB /* ProdriveImage.swift */,
@@ -598,7 +598,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4B72812F237C6428006E4605 /* Main.storyboard in Resources */,
-				4B756F452386E19900566118 /* ProdriveJobRequestCell.xib in Resources */,
+				4B2507D423980C59003B4094 /* ProdriveJobRequestCell.xib in Resources */,
 				4BDD96582382EA2600CED6C1 /* GoogleService-Info.plist in Resources */,
 				4B5ECA4123887A4A005FEE4A /* LaunchScreen.storyboard in Resources */,
 				4B7280EA237B113C006E4605 /* Assets.xcassets in Resources */,
@@ -688,6 +688,7 @@
 				4B72810C237B3B67006E4605 /* User.swift in Sources */,
 				4B8580EE238D878B00C1B779 /* JobRequestHistoryViewController.swift in Sources */,
 				4BB072F723899B07007402AB /* JobRequestDataSource.swift in Sources */,
+				4B2507D623980C75003B4094 /* ProdriveJobRequestCell.swift in Sources */,
 				4BF98277237F26E80091915D /* ProdriveButton.swift in Sources */,
 				4BDD965C2383024300CED6C1 /* BaseNavigationViewController.swift in Sources */,
 				4B728135237CAA5D006E4605 /* FetchFireBaseTokenUseCase.swift in Sources */,
@@ -702,7 +703,6 @@
 				4B72812E237C5D39006E4605 /* BaseTableViewCell.swift in Sources */,
 				4B8580FE238E2FAB00C1B779 /* JobRequestHistoryPresenter.swift in Sources */,
 				4B7280E3237B113A006E4605 /* AppDelegate.swift in Sources */,
-				4B756F472386E1C300566118 /* ProdriveJobRequestCell.swift in Sources */,
 				4BDD96A023847D2700CED6C1 /* UserProfileViewCoordinator.swift in Sources */,
 				4B8580FA238DD3E900C1B779 /* Company.swift in Sources */,
 				4B8580FC238E27FC00C1B779 /* JobRequestHistoryInteractor.swift in Sources */,
