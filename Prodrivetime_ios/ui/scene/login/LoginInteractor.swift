@@ -11,8 +11,8 @@ import SafariServices
 
 protocol LoginInteractor: BaseInteractor {
     func handleLoginButtonTapped(email: String?, password: String?)
-    func handleSwitchState(isOn: Bool)
     func handleSignUpButtonTapped()
+    func bindSwitchState(isOn: Bool)
 }
 
 class LoginInteractorImpl: BaseInteractor, LoginInteractor {
@@ -43,7 +43,7 @@ class LoginInteractorImpl: BaseInteractor, LoginInteractor {
     func onStart() {
         loginUseCase.registerObserver(observer: self)
         firebaseTokenUseCase.registerObserver(observer: self)
-//        shouldProceedToAutoLogin()
+        launchUserAuthenicationWorkFlow()
     }
     
     func onStop() {
@@ -51,12 +51,19 @@ class LoginInteractorImpl: BaseInteractor, LoginInteractor {
         firebaseTokenUseCase.unregisterObserver()
     }
     
-    private func shouldProceedToAutoLogin() {
-        
-        guard authenticator.shouldAutoLogin() else { return }
-        
-        
-        
+    private func launchUserAuthenicationWorkFlow() {
+        if authenticator.shouldAutoLogin() {
+            executeAutoLoginWorkFlow()
+            presenter.proceedToAutoLogin(bool: true)
+        } else {
+            presenter.proceedToAutoLogin(bool: false)
+        }
+    }
+    
+    private func executeAutoLoginWorkFlow() {
+        self.email = authenticator.loadUsername()
+        self.password = authenticator.loadPassword()
+        firebaseTokenUseCase.fetchFireBaseTokenAndNotify()
     }
 
     func handleLoginButtonTapped(email: String?, password: String?) {
@@ -73,7 +80,7 @@ class LoginInteractorImpl: BaseInteractor, LoginInteractor {
         firebaseTokenUseCase.fetchFireBaseTokenAndNotify()
     }
     
-    func handleSwitchState(isOn: Bool) {
+    func bindSwitchState(isOn: Bool) {
         switchState = isOn
     }
     

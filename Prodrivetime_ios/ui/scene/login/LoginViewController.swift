@@ -15,6 +15,7 @@ protocol LoginViewMvc: class {
     func hideLoadingIndicator()
     func showAlert(title: String, description: String)
     func hideLoginInterface()
+    func showLoginInterface()
 }
 
 class LoginViewController: BaseViewController, Storyboarded {
@@ -25,17 +26,17 @@ class LoginViewController: BaseViewController, Storyboarded {
     @IBOutlet weak var passwordTextField: ProdriveTextField!
     @IBOutlet weak var loginButton: ProdriveButton!
     @IBOutlet weak var rememberMeSwitch: UISwitch!
+    @IBOutlet weak var loginInterface: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureInitialSwitchState()
-        interactor?.handleSwitchState(isOn: rememberMeSwitch.isOn)
+        interactor?.bindSwitchState(isOn: rememberMeSwitch.isOn)
     }
     
     // MARK: - IBActions
     
     @IBAction func onSwitchTapped(_ sender: UISwitch) {
-        interactor?.handleSwitchState(isOn: sender.isOn)
+        interactor?.bindSwitchState(isOn: sender.isOn)
     }
     
     @IBAction func onLoginButtonTapped(_ sender: Any) {
@@ -48,21 +49,24 @@ class LoginViewController: BaseViewController, Storyboarded {
     
     // MARK: - Lifecycle callback
     
+    // Attaching the delegates in the interactor onces user logout
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         interactor?.onStart()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    // This is to bring the login interface back when the sign logout
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         interactor?.onStop()
+        loginInterface.isHidden = false
     }
     
     // MARK: - Configuration
     
     private func configureInitialSwitchState() {
         // making sure the switch is always in a defined state
-        rememberMeSwitch.setOn(false, animated: true)
+        rememberMeSwitch.setOn(true, animated: true)
     }
 }
 
@@ -92,6 +96,10 @@ extension LoginViewController: LoginViewMvc {
     }
     
     func hideLoginInterface() {
-        
+        loginInterface.isHidden = true
+    }
+    
+    func showLoginInterface() {
+        loginInterface.isHidden = false
     }
 }

@@ -11,16 +11,22 @@ import UIKit
 
 protocol SettingTableViewControllerViewMvc: class {
     
+    func proceedToMainLoginScreenAfterLogout()
+    func showLoadingIndicator()
+    func hideLoadingIndicator()
+    func showAlert(title: String, message: String)
 }
 
 class SettingTableViewController: UITableViewController, Storyboarded {
+    
+    
     
     weak var coordinator: SettingCoordinator?
     var interactor: SettingInteractor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        interactor?.onStart()
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -29,7 +35,7 @@ class SettingTableViewController: UITableViewController, Storyboarded {
         
         switch indexPath.section {
             
-            // MARK: - GENERAL SECTION
+            // MARK: - General section
             
         case 0 :
             
@@ -43,12 +49,11 @@ class SettingTableViewController: UITableViewController, Storyboarded {
                 
             case 2: // Rate Us
                 coordinator?.pushToRateUs()
-                tabBarController?.dismiss(animated: true, completion: nil)
             default:
                 fatalError("not implemented")
             }
             
-            // MARK: - ACCOUNT SECTION
+            // MARK: - Account section
             
         case 1:
             
@@ -71,6 +76,26 @@ class SettingTableViewController: UITableViewController, Storyboarded {
 }
 
 extension SettingTableViewController: SettingTableViewControllerViewMvc {
+    
+    func proceedToMainLoginScreenAfterLogout() {
+        tabBarController?.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func showLoadingIndicator() {
+        
+    }
+    
+    func hideLoadingIndicator() {
+        
+    }
+    
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+    
     
     
 }

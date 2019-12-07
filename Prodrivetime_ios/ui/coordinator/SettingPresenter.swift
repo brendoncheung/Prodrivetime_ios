@@ -9,7 +9,8 @@
 import Foundation
 
 protocol SettingPresenter {
-    
+    func userLogoutSuccessful()
+    func userLogoutFailed()
 }
 
 
@@ -20,6 +21,18 @@ class SettingPresenterImpl: SettingPresenter {
     init(viewMvc: SettingTableViewControllerViewMvc) {
         self.viewMvc = viewMvc
     }
+    
+    func userLogoutSuccessful() {
+        viewMvc?.hideLoadingIndicator()
+        viewMvc?.proceedToMainLoginScreenAfterLogout()
+    }
+    
+    func userLogoutFailed() {
+        viewMvc?.showAlert(title: "Error", message: "Please contact support")
+        
+    }
+    
+    
     
     
 }

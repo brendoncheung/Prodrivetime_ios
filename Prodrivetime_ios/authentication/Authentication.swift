@@ -39,7 +39,6 @@ class AuthenticationImpl: Authentication {
          userdefaults: UserDefaults) {
         self.keychainPasswordItem = keychainPasswordItem
         self.userdefaults = userdefaults
-        setShouldAutoLogin(to: false)
     }
     
     func saveUsernameAndPassword(username: String, password: String) {
@@ -56,6 +55,7 @@ class AuthenticationImpl: Authentication {
     }
     
     func clear() {
+        userdefaults.setValue("", forKey: USERNAME_KEY)
         try? keychainPasswordItem.deleteItem()
     }
     
@@ -64,7 +64,6 @@ class AuthenticationImpl: Authentication {
         guard let username = UserDefaults.standard.string(forKey: USERNAME_KEY) else {
             return ""
         }
-        
         return username
     }
     

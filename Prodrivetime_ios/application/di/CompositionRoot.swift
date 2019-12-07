@@ -36,6 +36,10 @@ class CompositionRoot {
     }
     
     func getSessionConfiguration() -> URLSessionConfiguration {
+        
+        let config = URLSessionConfiguration.default
+        config.timeoutIntervalForRequest = 10
+        
         return URLSessionConfiguration.default
     }
     
@@ -168,7 +172,7 @@ class CompositionRoot {
     }
     
     func getSettingInteractor(presenter: SettingPresenter) -> SettingInteractor {
-        return SettingInteractorImpl(logOutUseCase: getUserLogOutUseCase(), presenter: presenter, authenticator: getAuthentication())
+        return SettingInteractorImpl(logOutUseCase: getUserLogOutUseCase(), presenter: presenter, authenticator: getAuthentication(), factory: getURLRequestFactory())
     }
 }
 

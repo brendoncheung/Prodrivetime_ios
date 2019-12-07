@@ -95,6 +95,16 @@ class URLRequestFactory {
         return request
     }
     
+    func createUserLogOutURLRequest() -> URLRequest? {
+        guard let url = createURL(api: .Logoff) else { return nil}
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        return request
+        
+    }
+    
     fileprivate func createURL(api: API) -> URL? {
         
         switch api {

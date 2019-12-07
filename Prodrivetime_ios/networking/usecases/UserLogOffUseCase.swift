@@ -17,13 +17,39 @@ enum UserLogOffUseCaseError: Error{
     case logOutError
 }
 
-class UserLogOffUseCase {
+class UserLogOffUseCase: BaseObservable<UserLogOffUseCaseDelegate> {
     
     private let session: BaseNetworkSession
     
     init(session: BaseNetworkSession) {
         self.session = session
     }
+    
+    func requestUserLogOut(request: URLRequest) {
+        session.registerObserver(observer: self)
+        session.makeRequest(with: request)?.resume()
+    }
+}
+
+extension UserLogOffUseCase: BaseSessionCallback {
+    
+    func onData(data: Data) {
+        log.debug(String(data: data, encoding: .utf8))
+        // weird backend response
+    }
+    
+    func onResponse(response: HTTPURLResponse) {
+        if response.statusCode == 200 {
+            getObserver()?.onLogOutSuccessful()
+        }
+    }
+    
+    func onError(err: BaseNetworkSessionError) {
+        
+    }
+    
+    
+    
     
     
 }
