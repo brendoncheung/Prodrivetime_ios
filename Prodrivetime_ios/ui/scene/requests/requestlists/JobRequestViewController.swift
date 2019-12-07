@@ -47,6 +47,7 @@ class JobRequestViewController: BaseViewController, Storyboarded {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        interactor?.onStart()
         startRequestFetch()
     }
     
