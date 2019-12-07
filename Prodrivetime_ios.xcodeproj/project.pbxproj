@@ -14,12 +14,12 @@
 		4B2507D623980C75003B4094 /* ProdriveJobRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507D523980C75003B4094 /* ProdriveJobRequestCell.swift */; };
 		4B2507D823980E7C003B4094 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507D723980E7C003B4094 /* SettingCoordinator.swift */; };
 		4B2507DB23980EC8003B4094 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507DA23980EC8003B4094 /* SettingTableViewController.swift */; };
-		4B2507DD23981822003B4094 /* ContactUsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507DC23981822003B4094 /* ContactUsTableViewController.swift */; };
 		4B2507DF23981EA7003B4094 /* SettingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507DE23981EA7003B4094 /* SettingInteractor.swift */; };
 		4B2507E1239821E2003B4094 /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507E0239821E2003B4094 /* SettingPresenter.swift */; };
 		4B2507E523987FF4003B4094 /* StringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507E423987FF4003B4094 /* StringFormatter.swift */; };
 		4B2507E823989FD0003B4094 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507E723989FD0003B4094 /* SupportViewController.swift */; };
 		4B2507EA2398A163003B4094 /* SupportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507E92398A163003B4094 /* SupportCoordinator.swift */; };
+		4B2507F1239C3925003B4094 /* ContactUsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507F0239C3925003B4094 /* ContactUsTableViewController.swift */; };
 		4B5ECA4123887A4A005FEE4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B5ECA4023887A4A005FEE4A /* LaunchScreen.storyboard */; };
 		4B5ECA4523888E7D005FEE4A /* FilterPredicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5ECA4423888E7D005FEE4A /* FilterPredicates.swift */; };
 		4B7280E3237B113A006E4605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7280E2237B113A006E4605 /* AppDelegate.swift */; };
@@ -101,13 +101,13 @@
 		4B2507D523980C75003B4094 /* ProdriveJobRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdriveJobRequestCell.swift; sourceTree = "<group>"; };
 		4B2507D723980E7C003B4094 /* SettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
 		4B2507DA23980EC8003B4094 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingTableViewController.swift; path = Prodrivetime_ios/ui/coordinator/SettingTableViewController.swift; sourceTree = SOURCE_ROOT; };
-		4B2507DC23981822003B4094 /* ContactUsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactUsTableViewController.swift; path = Prodrivetime_ios/ui/coordinator/ContactUsTableViewController.swift; sourceTree = SOURCE_ROOT; };
 		4B2507DE23981EA7003B4094 /* SettingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingInteractor.swift; path = Prodrivetime_ios/ui/coordinator/SettingInteractor.swift; sourceTree = SOURCE_ROOT; };
 		4B2507E0239821E2003B4094 /* SettingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingPresenter.swift; path = Prodrivetime_ios/ui/coordinator/SettingPresenter.swift; sourceTree = SOURCE_ROOT; };
 		4B2507E423987FF4003B4094 /* StringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringFormatter.swift; sourceTree = "<group>"; };
 		4B2507E723989FD0003B4094 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
 		4B2507E92398A163003B4094 /* SupportCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportCoordinator.swift; sourceTree = "<group>"; };
 		4B2507EB239A0714003B4094 /* Prodrivetime_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Prodrivetime_ios.entitlements; sourceTree = "<group>"; };
+		4B2507F0239C3925003B4094 /* ContactUsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactUsTableViewController.swift; sourceTree = "<group>"; };
 		4B5ECA4023887A4A005FEE4A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B5ECA4423888E7D005FEE4A /* FilterPredicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPredicates.swift; sourceTree = "<group>"; };
 		4B7280DF237B113A006E4605 /* Prodrivetime_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prodrivetime_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +219,14 @@
 				4B2507E723989FD0003B4094 /* SupportViewController.swift */,
 			);
 			path = support;
+			sourceTree = "<group>";
+		};
+		4B2507EC239C35C6003B4094 /* contact */ = {
+			isa = PBXGroup;
+			children = (
+				4B2507F0239C3925003B4094 /* ContactUsTableViewController.swift */,
+			);
+			path = contact;
 			sourceTree = "<group>";
 		};
 		4B7280D6237B113A006E4605 = {
@@ -404,9 +412,9 @@
 		4BB073322389D9A7007402AB /* setting */ = {
 			isa = PBXGroup;
 			children = (
+				4B2507EC239C35C6003B4094 /* contact */,
 				4B2507DA23980EC8003B4094 /* SettingTableViewController.swift */,
 				4B2507DE23981EA7003B4094 /* SettingInteractor.swift */,
-				4B2507DC23981822003B4094 /* ContactUsTableViewController.swift */,
 				4B2507E0239821E2003B4094 /* SettingPresenter.swift */,
 			);
 			path = setting;
@@ -706,6 +714,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B2507F1239C3925003B4094 /* ContactUsTableViewController.swift in Sources */,
 				4B2507DF23981EA7003B4094 /* SettingInteractor.swift in Sources */,
 				4B8580F1238D893E00C1B779 /* JobRequestViewController.swift in Sources */,
 				4B2507E823989FD0003B4094 /* SupportViewController.swift in Sources */,
@@ -720,7 +729,6 @@
 				4BDD965A2382FE0400CED6C1 /* Storyboarded.swift in Sources */,
 				4BF983902380F2B10091915D /* ThreadScheduler.swift in Sources */,
 				4B728107237B3308006E4605 /* BaseObservable.swift in Sources */,
-				4B2507DD23981822003B4094 /* ContactUsTableViewController.swift in Sources */,
 				4BDD96512382508C00CED6C1 /* UserProfileViewPresenter.swift in Sources */,
 				4B7280E5237B113A006E4605 /* LoginViewController.swift in Sources */,
 				4BDD969E23847C6600CED6C1 /* UserLogOffUseCase.swift in Sources */,

@@ -14,6 +14,7 @@ protocol JobRequestViewMvc: class{
     func hideLoadingIndicator()
     func showEmptyState()
     func hideEmptyState()
+    func dataSourceReadyToDisplayData()
 }
 
 class JobRequestViewController: BaseViewController, Storyboarded {
@@ -43,8 +44,6 @@ class JobRequestViewController: BaseViewController, Storyboarded {
         configureTableView()
         configureSearchBar()
         configureInteractor()
-        
-        interactor?.onStart()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -60,6 +59,7 @@ class JobRequestViewController: BaseViewController, Storyboarded {
     
     func configureInteractor() {
         interactor?.bindEmail(email: email)
+        interactor?.onStart()
     }
     
     func configureTableView() {
@@ -117,6 +117,10 @@ extension JobRequestViewController: JobRequestViewMvc {
     func hideEmptyState() {
         jobRequestTableView.backgroundView = nil
         jobRequestTableView.separatorColor = UIColor.lightGray
+    }
+    
+    func dataSourceReadyToDisplayData() {
+        jobRequestTableView.reloadData()
     }
 }
 
