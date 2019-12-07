@@ -12,7 +12,7 @@ import UIKit
 class JobRequestCoordinator: Coordinator {
     
     let JOB_REQUEST_TAB_TITLE = "Request"
-    let DETAIL_REQUEST_TAB_TITLE = "Detail"
+    let DETAIL_REQUEST_TAB_TITLE = "Details"
     let IMAGE_NAME = "request_tab"
     let TABBAR_TAG = 2
     
@@ -59,6 +59,8 @@ class JobRequestCoordinator: Coordinator {
     // called when the load is successfully accpeted
     func popBack() {
         navigationController.popViewController(animated: true)
+        
+        // TODO : - while popping back to list controller, the list doesnt load
     }
     
     func bindUser(user: User) {

@@ -36,15 +36,18 @@ class AcceptJobRequestUseCase: BaseObservable<AcceptJobRequestUseCaseDelegate> {
 extension AcceptJobRequestUseCase: BaseSessionCallback {
     
     func onData(data: Data) {
+        session.unregisterObserver()
     }
     
     func onResponse(response: HTTPURLResponse) {
         log.debug(response.statusCode)
         getObserver()?.onRequestAcceptJobSuccessful()
+
     }
     
     func onError(err: BaseNetworkSessionError) {
         getObserver()?.onRequestAcceptJobFailed(error: .requestFailed)
+
     }
     
 }

@@ -18,10 +18,12 @@ class JobRequestDataSource: NSObject, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! ProdriveJobRequestCell
         let request = requests[indexPath.row]
         
+        // MARK: - populating cell
+        
         cell.title.text = request.title
         cell.company.text = request.businessName
         cell.location.text = request.pickupAddress
-        cell.offer.text = "$ " + request.price
+        cell.offer.text = StringFormatter.convertStringToCurrency(string: request.price)
     
         return cell
     }

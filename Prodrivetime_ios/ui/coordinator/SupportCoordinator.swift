@@ -9,47 +9,20 @@
 import Foundation
 import UIKit
 
-class SettingCoordinator: Coordinator {
+class SupportCoordinator: Coordinator {
     
     var childCoordinators = [Coordinator]()
     
     var navigationController: BaseNavigationViewController
     
-    func onStart() {
-        pushToMainSetting()
-    }
-    
     init(navigationController: BaseNavigationViewController) {
         self.navigationController = navigationController
     }
     
-    func pushToMainSetting() {
-        let rootController = SupportTableViewController.instantiate()
-        rootController.title = "Setting"
-        rootController.tabBarItem = UITabBarItem(title: "Setting", image: UIImage(named: "setting_tab"), tag: 4)
-        
-        navigationController.pushViewController(rootController, animated: true)
-    }
-    
-    func pushToContactUs() {
-        
+    func onStart() {
         
     }
     
-    func pushToPrivacyPolicy() {
-        
-        
-    }
-    
-    func pushToReportAProblem() {
-        
-        
-    }
-    
-    func pushToSignOut() {
-        
-        
-    }
     
     
     

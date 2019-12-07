@@ -8,8 +8,17 @@
 
 import Foundation
 import UIKit
+import SafariServices
 
 class SettingCoordinator: Coordinator {
+    
+    let TAB_TITLE = "Setting"
+    let IMAGE_NAME = "setting_tab"
+    let TABBAR_TAG = 5
+    
+    let PRIVACY_POLICY_LINK = "https://www.prodrivetime.com/driver/driverRegister"
+    let CONTACT_TITLE = "Contact"
+    let RATE_US_TITLE = "Rate Us!"
     
     var childCoordinators = [Coordinator]()
     
@@ -30,7 +39,7 @@ class SettingCoordinator: Coordinator {
         injector?.inject(settingController: rootController)
         rootController.title = "Setting"
         rootController.coordinator = self
-        rootController.tabBarItem = UITabBarItem(title: "Setting", image: UIImage(named: "setting_tab"), tag: 4)
+        rootController.tabBarItem = UITabBarItem(title: TAB_TITLE, image: UIImage(named: IMAGE_NAME), tag: TABBAR_TAG)
         
         navigationController.pushViewController(rootController, animated: true)
     }
@@ -42,19 +51,24 @@ class SettingCoordinator: Coordinator {
     func pushToContactUs() {
         let contactController = ContactUsTableViewController.instantiate()
         
-        contactController.title = "Contact"
+        contactController.title = CONTACT_TITLE
         navigationController.pushViewController(contactController, animated: true)
     }
     
     func pushToPrivacyPolicy() {
         log.debug("privacy policy")
+        guard let url = URL(string: PRIVACY_POLICY_LINK) else { return }
+        let svc = SFSafariViewController(url: url)
+        navigationController.present(svc, animated: true, completion: nil)
     }
     
     func pushToReportAProblem() {
         log.debug("report a problem")
+        let support = SupportViewController.instantiate()
+        navigationController.present(support, animated: true, completion: nil)
     }
     
-    func pushToSignOut(logoutHandler: @escaping () -> ()) {
+    func pushToLogOut(logoutHandler: @escaping () -> ()) {
         log.debug("sign out")
         let actionSheet = UIAlertController(title: "You are about to log out", message: "Are you sure?", preferredStyle: .actionSheet)
         

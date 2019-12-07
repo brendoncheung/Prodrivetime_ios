@@ -9,11 +9,12 @@
 import Foundation
 
 protocol Authentication {
-    func saveUsername(username: String)
-    func savePassword(password: String)
+    func saveUsernameAndPassword(username: String, password: String)
     func clear()
     func loadUsername() -> String
     func loadPassword() -> String
+    func setShouldAutoLogin(to bool: Bool)
+    func shouldAutoLogin() -> Bool
 }
 
 protocol AuthenticationErrorDelegate: class {
@@ -29,25 +30,29 @@ enum AuthenticationError{
 
 class AuthenticationImpl: Authentication {
     
-    private let keychainPasswordItem: KeychainPasswordItem
-    private let KeychainConfiguration: KeychainConfiguration
     private let USERNAME_KEY = "USERNAME"
-    private weak var delegate: AuthenticationErrorDelegate?
+    private let AUTO_LOGIN_KEY = "AUTOLOGIN"
+    private let keychainPasswordItem: KeychainPasswordItem
+    private let userdefaults: UserDefaults
     
     init(keychainPasswordItem: KeychainPasswordItem,
-         KeychainConfiguration: KeychainConfiguration,
-         delegate: AuthenticationErrorDelegate) {
+         userdefaults: UserDefaults) {
         self.keychainPasswordItem = keychainPasswordItem
-        self.KeychainConfiguration = KeychainConfiguration
-        self.delegate = delegate
+        self.userdefaults = userdefaults
+        setShouldAutoLogin(to: false)
     }
     
-    func saveUsername(username: String) {
-        UserDefaults.standard.setValue(username, forKey: USERNAME_KEY)
-    }
-    
-    func savePassword(password: String) {
+    func saveUsernameAndPassword(username: String, password: String) {
+        userdefaults.setValue(username, forKey: USERNAME_KEY)
         try? keychainPasswordItem.savePassword(password)
+    }
+    
+    func setShouldAutoLogin(to bool: Bool) {
+        userdefaults.set(bool, forKey: AUTO_LOGIN_KEY)
+    }
+
+    func shouldAutoLogin() -> Bool {
+        return userdefaults.bool(forKey: AUTO_LOGIN_KEY)
     }
     
     func clear() {
@@ -66,10 +71,4 @@ class AuthenticationImpl: Authentication {
     func loadPassword() -> String {
         return try! keychainPasswordItem.readPassword()
     }
-    
-    
-    
-    
-    
-    
 }

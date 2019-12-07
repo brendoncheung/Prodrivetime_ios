@@ -14,7 +14,7 @@ class JobRequestHistoryCoordinator: Coordinator {
     let JOB_REQUEST_TAB_TITLE = "History"
     let DETAIL_REQUEST_TAB_TITLE = "Details"
     let IMAGE_NAME = "history_tab"
-    let TABBAR_TAG = 3
+    let TABBAR_TAG = 4
     
     var childCoordinators = [Coordinator]()
     

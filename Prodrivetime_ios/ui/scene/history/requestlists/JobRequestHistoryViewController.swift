@@ -25,7 +25,7 @@ class JobRequestHistoryViewController: BaseViewController, Storyboarded {
     
     var user: User?
     var interactor: JobRequestHistoryInteractor?
-    var coordinator: JobRequestHistoryCoordinator?
+    weak var coordinator: JobRequestHistoryCoordinator?
     
     @IBOutlet weak var jobRequestHistoryTableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -37,6 +37,11 @@ class JobRequestHistoryViewController: BaseViewController, Storyboarded {
         configureTableView()
         configureSearchBar()
         configureInteractor()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        interactor?.onStop()
     }
     
     func configureInteractor() {

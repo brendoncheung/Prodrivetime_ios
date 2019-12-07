@@ -44,15 +44,18 @@ class FetchUserProfileUseCase: BaseObservable<FetchUserProfileUseCaseDelegate>, 
         } catch {
             getObserver()?.onUserProfileFetchFailed(error: .decodeJsonUnsucessful)
         }
+        
+        session.unregisterObserver()
+
     }
     
     func onError(err: BaseNetworkSessionError) {
         
         self.getObserver()?.onUserProfileFetchFailed(error: .requestFailed)
-        
     }
     
     func onResponse(response: HTTPURLResponse) {
         // use if need be
+
     }
 }

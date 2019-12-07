@@ -48,6 +48,8 @@ extension UserProfileViewInteractorImpl: UserProfileViewInteractor {
     }
 }
 
+// MARK: - FetchRequestUseCaseDelegate callback
+
 extension UserProfileViewInteractorImpl: FetchRequestUseCaseDelegate {
     
     func onRequestFetching() {

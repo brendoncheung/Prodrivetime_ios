@@ -44,6 +44,11 @@ class RequestHistoryDetailViewController: BaseViewController, Storyboarded {
         interactor?.onStart()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        interactor?.onStop()
+    }
+    
     // MARK: - Configuration
 
     
@@ -66,7 +71,7 @@ extension RequestHistoryDetailViewController: RequestHistoryDetailViewMvc {
     
     func populateUI(request: JobRequestHistory) {
         titleLabel.text = request.title
-        offeringLabel.text = "$ \(request.offering)"
+        offeringLabel.text = StringFormatter.convertStringToCurrency(string: request.offering)
         emailLabel.text = request.businessEmail
         requestIdLabel.text = "\(request.request_id)"
         finalIdLabel.text = request.final_id

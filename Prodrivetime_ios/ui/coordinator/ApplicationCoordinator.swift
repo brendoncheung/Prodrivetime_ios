@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 protocol Coordinator: class {
     
     var childCoordinators: [Coordinator] {get set}
@@ -45,13 +46,9 @@ class ApplicationCoordinator: Coordinator {
     }
     
     func pushToMainTabBarController(user: User) {
-        let tabbarController = BaseTabBarViewController()
-        tabbarController.userProfile = user
-        tabbarController.injector = injector
+        let tabbarController = BaseTabBarViewController(user: user, injector: injector)
         tabbarController.modalPresentationStyle = .fullScreen
         window.rootViewController?.present(tabbarController, animated: true, completion: nil)
     }
     
 }
-
-// Request history profile support more(signout)

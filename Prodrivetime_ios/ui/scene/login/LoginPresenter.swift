@@ -14,6 +14,7 @@ protocol LoginPresenter {
     func userProfileError(err: FetchUserProfileUseCaseError)
     func userProfileFetching()
     func handleSignUp(url: URL)
+    func proceedToAutoLogin()
 }
 
 class LoginPresenterImpl: LoginPresenter {
@@ -54,5 +55,9 @@ class LoginPresenterImpl: LoginPresenter {
     
     func handleSignUp(url: URL) {
         viewMvc?.showSignUpPage(url: url)
+    }
+    
+    func proceedToAutoLogin() {
+        viewMvc?.hideLoginInterface()
     }
 }

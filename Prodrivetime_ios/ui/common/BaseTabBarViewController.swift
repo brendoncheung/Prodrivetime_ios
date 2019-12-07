@@ -10,20 +10,32 @@ import UIKit
 
 class BaseTabBarViewController: UITabBarController {
     
-    // This will be injected from ApplicationCoordinator
-    var userProfile: User?
-    var injector: Injector?
+    private let user: User
+    private let injector: Injector
     
     let userProfileCoordinator = UserProfileCoordinator(navigationCoordinator: BaseNavigationViewController())
     let requestCoordinator = JobRequestCoordinator(navigationController: BaseNavigationViewController())
     let requestHistoryCoordinator = JobRequestHistoryCoordinator(navigationController: BaseNavigationViewController())
     let settingCoordinator = SettingCoordinator(navigationController: BaseNavigationViewController())
+    let supportController = SupportViewController.instantiate()
+    
+    init(user: User, injector: Injector) {
+        self.injector = injector
+        self.user = user
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("not implemented")
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.delegate = self
+        configureTabBarController()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    private func configureTabBarController() {
         
         configureUserProfileCoordinator()
         configureRequestCoordinator()
@@ -33,36 +45,59 @@ class BaseTabBarViewController: UITabBarController {
         viewControllers = [
             userProfileCoordinator.navigationController,
             requestCoordinator.navigationController,
+            SupportViewController.instantiate(),
             requestHistoryCoordinator.navigationController,
             settingCoordinator.navigationController
         ]
     }
     
+    // MARK: coordinator configuration
+    
     func configureUserProfileCoordinator() {
-        guard let userProfile = userProfile, let injector = injector else { fatalError("User profile cant be nil")}
-        userProfileCoordinator.bindUserProfile(userProfile: userProfile)
+        userProfileCoordinator.bindUserProfile(userProfile: user)
         userProfileCoordinator.bindInjector(injector: injector)
         userProfileCoordinator.onStart()
     }
     
     func configureRequestCoordinator() {
-        guard let userProfile = userProfile, let injector = injector else { fatalError("User profile cant be nil")}
-        requestCoordinator.bindUser(user: userProfile)
+        requestCoordinator.bindUser(user: user)
         requestCoordinator.bindInjector(injector: injector)
         requestCoordinator.onStart()
     }
     
     func configureRequestHistoryCoordinator() {
-        guard let userProfile = userProfile, let injector = injector else { fatalError("User profile cant be nil")}
-        requestHistoryCoordinator.bindUser(user: userProfile)
+        requestHistoryCoordinator.bindUser(user: user)
         requestHistoryCoordinator.bindInjector(injector: injector)
         requestHistoryCoordinator.onStart()
     }
 
     func configureSettingCoordinator() {
-        guard let injector = injector else { fatalError("injector cant be nil")}
         settingCoordinator.bindInjector(injector: injector)
         settingCoordinator.onStart()
     }
-
 }
+
+// MARK: - showing modal support controller
+
+extension BaseTabBarViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        if #available(iOS 13, *) {
+            if viewController is SupportViewController {
+                self.modalPresentationStyle = .pageSheet
+                self.present(supportController, animated: true, completion: nil)
+                return false
+            }
+        } else {
+            return true
+        }
+        
+        return true
+            
+        
+    }
+}
+
+
+

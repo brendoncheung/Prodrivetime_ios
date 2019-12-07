@@ -45,7 +45,7 @@ class ProdriveButton: UIButton{
     }
     
     func hideLoading() {
-        
+        self.setTitle("Login", for: .normal)
         activityIndicator.stopAnimating()
     }
     

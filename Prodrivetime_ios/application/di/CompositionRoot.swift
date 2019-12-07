@@ -65,6 +65,22 @@ class CompositionRoot {
         return Injector(compositionRoot: self)
     }
     
+    // MARK: - Authentication configuration
+    
+    private let KEYCHAIN_ACCOUNT_NAME = "Prodrivetime_keychain_account"
+    
+    func getUserDefaults() -> UserDefaults {
+        return UserDefaults.standard
+    }
+    
+    func getKeyChainPasswordItem() -> KeychainPasswordItem {
+        return KeychainPasswordItem(service: KeychainConfiguration.serviceName, account: KEYCHAIN_ACCOUNT_NAME, accessGroup: KeychainConfiguration.accessGroup)
+    }
+
+    func getAuthentication() -> Authentication {
+        return AuthenticationImpl(keychainPasswordItem: getKeyChainPasswordItem(), userdefaults: getUserDefaults())
+    }
+
     // MARK: - Use cases configuration
     
     func getFetchUserProfileUseCase() -> FetchUserProfileUseCase {
@@ -128,7 +144,7 @@ class CompositionRoot {
     // MARK: - Interactors configuration
     
     func getLoginInteractor(presenter: LoginPresenter) -> LoginInteractor {
-        return LoginInteractorImpl(loginUseCase: getFetchUserProfileUseCase(), firebaseTokenUseCase: getFetchFirebaseTokenUseCase(), factory: getURLRequestFactory(),presenter: presenter)
+        return LoginInteractorImpl(loginUseCase: getFetchUserProfileUseCase(), firebaseTokenUseCase: getFetchFirebaseTokenUseCase(), factory: getURLRequestFactory(),presenter: presenter, authenticator: getAuthentication())
     }
     
     func getUserProfileViewInteractor(presenter: UserProfileViewPresenter) -> UserProfileViewInteractor {
@@ -152,11 +168,8 @@ class CompositionRoot {
     }
     
     func getSettingInteractor(presenter: SettingPresenter) -> SettingInteractor {
-        return SettingInteractorImpl(logOutUseCase: getUserLogOutUseCase(), presenter: presenter)
+        return SettingInteractorImpl(logOutUseCase: getUserLogOutUseCase(), presenter: presenter, authenticator: getAuthentication())
     }
-    
-    
-    
 }
 
 

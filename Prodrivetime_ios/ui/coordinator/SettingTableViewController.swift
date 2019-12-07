@@ -15,12 +15,12 @@ protocol SettingTableViewControllerViewMvc: class {
 
 class SettingTableViewController: UITableViewController, Storyboarded {
     
-    var coordinator: SettingCoordinator?
+    weak var coordinator: SettingCoordinator?
     var interactor: SettingInteractor?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        log.debug(tableView.delegate)
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -43,7 +43,7 @@ class SettingTableViewController: UITableViewController, Storyboarded {
                 
             case 2: // Rate Us
                 coordinator?.pushToRateUs()
-                
+                tabBarController?.dismiss(animated: true, completion: nil)
             default:
                 fatalError("not implemented")
             }
@@ -58,7 +58,7 @@ class SettingTableViewController: UITableViewController, Storyboarded {
                 coordinator?.pushToPrivacyPolicy()
                 
             case 1: // Logout
-                coordinator?.pushToSignOut(logoutHandler: interactor.handleLogout)
+                coordinator?.pushToLogOut(logoutHandler: interactor.handleLogout)
                 
             default:
                 fatalError("not implemented")

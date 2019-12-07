@@ -34,7 +34,9 @@ class JobRequestViewController: BaseViewController, Storyboarded {
     
     var interactor: JobRequestInteractor?
     var email: String?
-    var coordinator: JobRequestCoordinator?
+    weak var coordinator: JobRequestCoordinator?
+    
+    // MARK: - lifecycle callback
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +55,8 @@ class JobRequestViewController: BaseViewController, Storyboarded {
         super.viewDidDisappear(animated)
         interactor?.onStop()
     }
+    
+    // MARK: - configurations
     
     func configureInteractor() {
         interactor?.bindEmail(email: email)
@@ -74,12 +78,14 @@ class JobRequestViewController: BaseViewController, Storyboarded {
         searchbar.delegate = self
     }
     
+    // MARK: - owner inplementation
+    
     @objc private func startRequestFetch() {
         interactor?.fetchJobRequestAndNotify()
     }
 }
 
-// callback from presenter
+// MARK: - presenter callback
 
 extension JobRequestViewController: JobRequestViewMvc {
     
@@ -114,6 +120,8 @@ extension JobRequestViewController: JobRequestViewMvc {
     }
 }
 
+// MARK: - TableView delegate callback
+
 extension JobRequestViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -125,6 +133,8 @@ extension JobRequestViewController: UITableViewDelegate {
     }
 }
 
+// MARK: - DeleteTableRowDelegate callback
+
 extension JobRequestViewController: DeleteTableRowDelegate {
     func deleteRow(at row: Int) {
         originalRequests.remove(at: row)
@@ -133,6 +143,8 @@ extension JobRequestViewController: DeleteTableRowDelegate {
         jobRequestTableView.endUpdates()
     }
 }
+
+// MARK: - UISearchBarDelegate callback
 
 extension JobRequestViewController: UISearchBarDelegate {
     

@@ -14,6 +14,7 @@ protocol LoginViewMvc: class {
     func showSignUpPage(url: URL)
     func hideLoadingIndicator()
     func showAlert(title: String, description: String)
+    func hideLoginInterface()
 }
 
 class LoginViewController: BaseViewController, Storyboarded {
@@ -27,15 +28,14 @@ class LoginViewController: BaseViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureSwitch()
-        
+        configureInitialSwitchState()
+        interactor?.handleSwitchState(isOn: rememberMeSwitch.isOn)
     }
     
     // MARK: - IBActions
     
     @IBAction func onSwitchTapped(_ sender: UISwitch) {
         interactor?.handleSwitchState(isOn: sender.isOn)
-        log.debug(sender.isOn)
     }
     
     @IBAction func onLoginButtonTapped(_ sender: Any) {
@@ -60,11 +60,10 @@ class LoginViewController: BaseViewController, Storyboarded {
     
     // MARK: - Configuration
     
-    private func configureSwitch() {
+    private func configureInitialSwitchState() {
         // making sure the switch is always in a defined state
-        rememberMeSwitch.setOn(true, animated: true)
+        rememberMeSwitch.setOn(false, animated: true)
     }
-    
 }
 
     // MARK: Presenter Callbacks
@@ -92,4 +91,7 @@ extension LoginViewController: LoginViewMvc {
         present(svc, animated: true, completion: nil)
     }
     
+    func hideLoginInterface() {
+        
+    }
 }

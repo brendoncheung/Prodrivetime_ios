@@ -9,7 +9,7 @@
 import Foundation
 
 struct KeychainConfiguration {
-    static let serviceName = "MyAppService"
+    static let serviceName = "Prodrivetime_keychain"
     
     /*
      Specifying an access group to use with `KeychainPasswordItem` instances

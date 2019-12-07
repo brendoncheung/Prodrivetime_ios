@@ -20,30 +20,43 @@ class LoginInteractorImpl: BaseInteractor, LoginInteractor {
     private let loginUseCase: FetchUserProfileUseCase
     private let firebaseTokenUseCase: FetchFireBaseTokenUseCase
     private let factory: URLRequestFactory
+    private let authenticator: Authentication
     
-    private var email: String?
-    private var password: String?
+    private var email: String!
+    private var password: String!
+    private var switchState = false
     
     var presenter: LoginPresenter
     
     init(loginUseCase: FetchUserProfileUseCase,
         firebaseTokenUseCase: FetchFireBaseTokenUseCase,
         factory: URLRequestFactory,
-        presenter: LoginPresenter) {
+        presenter: LoginPresenter,
+        authenticator: Authentication) {
         self.loginUseCase = loginUseCase
         self.firebaseTokenUseCase = firebaseTokenUseCase
         self.factory = factory
         self.presenter = presenter
+        self.authenticator = authenticator
     }
     
     func onStart() {
         loginUseCase.registerObserver(observer: self)
         firebaseTokenUseCase.registerObserver(observer: self)
+//        shouldProceedToAutoLogin()
     }
     
     func onStop() {
         loginUseCase.unregisterObserver()
         firebaseTokenUseCase.unregisterObserver()
+    }
+    
+    private func shouldProceedToAutoLogin() {
+        
+        guard authenticator.shouldAutoLogin() else { return }
+        
+        
+        
     }
 
     func handleLoginButtonTapped(email: String?, password: String?) {
@@ -56,44 +69,21 @@ class LoginInteractorImpl: BaseInteractor, LoginInteractor {
         
         self.email = email
         self.password = password
-        
+
         firebaseTokenUseCase.fetchFireBaseTokenAndNotify()
     }
     
     func handleSwitchState(isOn: Bool) {
-        
+        switchState = isOn
     }
     
     func handleSignUpButtonTapped() {
         guard let url = URL(string: "https://www.prodrivetime.com/driver/driverRegister") else { return }
-        
         presenter.handleSignUp(url: url)
-        
     }
 }
 
-extension LoginInteractorImpl: FetchUserProfileUseCaseDelegate {
-    
-    func onUserProfileFetchFailed(error: FetchUserProfileUseCaseError) {
-        
-        switch error {
-            
-        case .decodeJsonUnsucessful :
-            presenter.userProfileError(err: .decodeJsonUnsucessful)
-        
-        case .requestFailed :
-            presenter.userProfileError(err: .requestFailed)
-        }
-    }
-    
-    func onUserProfileFetchSuccessful(user: User) {
-        presenter.userProfileFetched(user: user)
-    }
-    
-    func onUserProfileFetching() {
-        presenter.userProfileFetching()
-    }
-}
+// MARK: - Firebase token callback
 
 extension LoginInteractorImpl: FetchFireBaseTokenUseCaseDelegate {
     
@@ -109,6 +99,43 @@ extension LoginInteractorImpl: FetchFireBaseTokenUseCaseDelegate {
         loginUseCase.fetchUserProfileAndNotify(with: request)
     }
 }
+
+// MARK: - Userprofile callback
+
+extension LoginInteractorImpl: FetchUserProfileUseCaseDelegate {
+    
+    func onUserProfileFetching() {
+        presenter.userProfileFetching()
+    }
+    
+    func onUserProfileFetchFailed(error: FetchUserProfileUseCaseError) {
+        
+        switch error {
+            
+        case .decodeJsonUnsucessful :
+            presenter.userProfileError(err: .decodeJsonUnsucessful)
+        
+        case .requestFailed :
+            presenter.userProfileError(err: .requestFailed)
+        }
+    }
+    
+    func onUserProfileFetchSuccessful(user: User) {
+        autoLoginCapture()
+        presenter.userProfileFetched(user: user)
+    }
+    
+    private func autoLoginCapture() {
+        if switchState {
+            authenticator.setShouldAutoLogin(to: true)
+            authenticator.saveUsernameAndPassword(username: email, password: password)
+        } else {
+            authenticator.setShouldAutoLogin(to: false)
+        }
+    }
+}
+
+
 
 
 

@@ -48,6 +48,7 @@ class URLRequestFactory {
         var request = createPOSTRequest(url: url)
         
         request.httpBody = "\(email_param)=\(email)&\(password_param)=\(pw)&\(token_param)=\(token)".data(using: .utf8)
+        log.debug(token)
         
         return request
     }

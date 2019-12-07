@@ -44,14 +44,17 @@ class FetchRequestHistoryUseCase: BaseObservable<FetchRequestHistoryUseCaseDeleg
         } catch {
             getObserver()?.onRequestHistoryFetchedFailed(error: .decodeJsonUnsucessful)
         }
+        session.unregisterObserver()
     }
     
     func onResponse(response: HTTPURLResponse) {
         // stub
+
     }
     
     func onError(err: BaseNetworkSessionError) {
         getObserver()?.onRequestHistoryFetchedFailed(error: .requestFailed)
+
     }
     
     

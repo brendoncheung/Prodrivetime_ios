@@ -38,9 +38,10 @@ class RequestDetailViewController: BaseViewController, Storyboarded {
     var user: User?
     var request: JobRequest?
     var interator: RequestDetailInteractor?
-    var coordinator: JobRequestCoordinator?
     var rowSelected: Int!
+    
     weak var delegate: DeleteTableRowDelegate?
+    weak var coordinator: JobRequestCoordinator?
     
     override func viewDidLoad() {
         loadingIndicator.hidesWhenStopped = true

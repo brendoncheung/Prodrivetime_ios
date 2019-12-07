@@ -14,6 +14,12 @@
 		4B2507D623980C75003B4094 /* ProdriveJobRequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507D523980C75003B4094 /* ProdriveJobRequestCell.swift */; };
 		4B2507D823980E7C003B4094 /* SettingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507D723980E7C003B4094 /* SettingCoordinator.swift */; };
 		4B2507DB23980EC8003B4094 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507DA23980EC8003B4094 /* SettingTableViewController.swift */; };
+		4B2507DD23981822003B4094 /* ContactUsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507DC23981822003B4094 /* ContactUsTableViewController.swift */; };
+		4B2507DF23981EA7003B4094 /* SettingInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507DE23981EA7003B4094 /* SettingInteractor.swift */; };
+		4B2507E1239821E2003B4094 /* SettingPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507E0239821E2003B4094 /* SettingPresenter.swift */; };
+		4B2507E523987FF4003B4094 /* StringFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507E423987FF4003B4094 /* StringFormatter.swift */; };
+		4B2507E823989FD0003B4094 /* SupportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507E723989FD0003B4094 /* SupportViewController.swift */; };
+		4B2507EA2398A163003B4094 /* SupportCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B2507E92398A163003B4094 /* SupportCoordinator.swift */; };
 		4B5ECA4123887A4A005FEE4A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B5ECA4023887A4A005FEE4A /* LaunchScreen.storyboard */; };
 		4B5ECA4523888E7D005FEE4A /* FilterPredicates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5ECA4423888E7D005FEE4A /* FilterPredicates.swift */; };
 		4B7280E3237B113A006E4605 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B7280E2237B113A006E4605 /* AppDelegate.swift */; };
@@ -95,6 +101,13 @@
 		4B2507D523980C75003B4094 /* ProdriveJobRequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdriveJobRequestCell.swift; sourceTree = "<group>"; };
 		4B2507D723980E7C003B4094 /* SettingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCoordinator.swift; sourceTree = "<group>"; };
 		4B2507DA23980EC8003B4094 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingTableViewController.swift; path = Prodrivetime_ios/ui/coordinator/SettingTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		4B2507DC23981822003B4094 /* ContactUsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactUsTableViewController.swift; path = Prodrivetime_ios/ui/coordinator/ContactUsTableViewController.swift; sourceTree = SOURCE_ROOT; };
+		4B2507DE23981EA7003B4094 /* SettingInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingInteractor.swift; path = Prodrivetime_ios/ui/coordinator/SettingInteractor.swift; sourceTree = SOURCE_ROOT; };
+		4B2507E0239821E2003B4094 /* SettingPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingPresenter.swift; path = Prodrivetime_ios/ui/coordinator/SettingPresenter.swift; sourceTree = SOURCE_ROOT; };
+		4B2507E423987FF4003B4094 /* StringFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringFormatter.swift; sourceTree = "<group>"; };
+		4B2507E723989FD0003B4094 /* SupportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportViewController.swift; sourceTree = "<group>"; };
+		4B2507E92398A163003B4094 /* SupportCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportCoordinator.swift; sourceTree = "<group>"; };
+		4B2507EB239A0714003B4094 /* Prodrivetime_ios.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Prodrivetime_ios.entitlements; sourceTree = "<group>"; };
 		4B5ECA4023887A4A005FEE4A /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B5ECA4423888E7D005FEE4A /* FilterPredicates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPredicates.swift; sourceTree = "<group>"; };
 		4B7280DF237B113A006E4605 /* Prodrivetime_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prodrivetime_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,11 +205,20 @@
 			path = "xib file";
 			sourceTree = "<group>";
 		};
-		4B2507D923980EA9003B4094 /* setting */ = {
+		4B2507E223987FD6003B4094 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				4B2507E423987FF4003B4094 /* StringFormatter.swift */,
 			);
-			path = setting;
+			path = util;
+			sourceTree = "<group>";
+		};
+		4B2507E623989FB5003B4094 /* support */ = {
+			isa = PBXGroup;
+			children = (
+				4B2507E723989FD0003B4094 /* SupportViewController.swift */,
+			);
+			path = support;
 			sourceTree = "<group>";
 		};
 		4B7280D6237B113A006E4605 = {
@@ -222,13 +244,15 @@
 		4B7280E1237B113A006E4605 /* Prodrivetime_ios */ = {
 			isa = PBXGroup;
 			children = (
+				4B2507E223987FD6003B4094 /* util */,
 				4BF9826F237F138E0091915D /* application */,
+				4BDD9663238341E000CED6C1 /* authentication */,
 				4B72810A237B3B5A006E4605 /* domain */,
-				4BDD9663238341E000CED6C1 /* utils */,
 				4BF983912381A82E0091915D /* storyboard */,
 				4B728103237B2FA2006E4605 /* networking */,
 				4B728102237B1194006E4605 /* ui */,
 				4BDD96572382EA2600CED6C1 /* GoogleService-Info.plist */,
+				4B2507EB239A0714003B4094 /* Prodrivetime_ios.entitlements */,
 			);
 			path = Prodrivetime_ios;
 			sourceTree = "<group>";
@@ -377,18 +401,20 @@
 			path = extensions;
 			sourceTree = "<group>";
 		};
-		4BB073322389D9A7007402AB /* support */ = {
+		4BB073322389D9A7007402AB /* setting */ = {
 			isa = PBXGroup;
 			children = (
 				4B2507DA23980EC8003B4094 /* SettingTableViewController.swift */,
+				4B2507DE23981EA7003B4094 /* SettingInteractor.swift */,
+				4B2507DC23981822003B4094 /* ContactUsTableViewController.swift */,
+				4B2507E0239821E2003B4094 /* SettingPresenter.swift */,
 			);
-			path = support;
+			path = setting;
 			sourceTree = "<group>";
 		};
 		4BB073332389D9C3007402AB /* history */ = {
 			isa = PBXGroup;
 			children = (
-				4B2507D923980EA9003B4094 /* setting */,
 				4B8580EB238D876300C1B779 /* requestlists */,
 				4B8580EC238D876A00C1B779 /* requestdetails */,
 			);
@@ -413,18 +439,19 @@
 				4BF98272237F1F070091915D /* userprofile */,
 				4BF98270237F1E9A0091915D /* requests */,
 				4BB073332389D9C3007402AB /* history */,
-				4BB073322389D9A7007402AB /* support */,
+				4BB073322389D9A7007402AB /* setting */,
+				4B2507E623989FB5003B4094 /* support */,
 			);
 			path = scene;
 			sourceTree = "<group>";
 		};
-		4BDD9663238341E000CED6C1 /* utils */ = {
+		4BDD9663238341E000CED6C1 /* authentication */ = {
 			isa = PBXGroup;
 			children = (
 				4BDD9664238341F200CED6C1 /* keychain */,
 				4B8CD1C123975910005556A3 /* Authentication.swift */,
 			);
-			path = utils;
+			path = authentication;
 			sourceTree = "<group>";
 		};
 		4BDD9664238341F200CED6C1 /* keychain */ = {
@@ -507,6 +534,7 @@
 				4B8580F5238D8B0400C1B779 /* JobRequestCoordinator.swift */,
 				4B8580EF238D888300C1B779 /* JobRequestHistoryCoordinator.swift */,
 				4B2507D723980E7C003B4094 /* SettingCoordinator.swift */,
+				4B2507E92398A163003B4094 /* SupportCoordinator.swift */,
 			);
 			path = coordinator;
 			sourceTree = "<group>";
@@ -678,16 +706,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B2507DF23981EA7003B4094 /* SettingInteractor.swift in Sources */,
 				4B8580F1238D893E00C1B779 /* JobRequestViewController.swift in Sources */,
+				4B2507E823989FD0003B4094 /* SupportViewController.swift in Sources */,
 				4BF9826E237F0FDC0091915D /* LoginPresenter.swift in Sources */,
 				4BB0732D2389D94C007402AB /* RequestDetailViewController.swift in Sources */,
+				4B2507E523987FF4003B4094 /* StringFormatter.swift in Sources */,
 				4BDD964D2382502100CED6C1 /* UserProfileViewController.swift in Sources */,
 				4B8580F0238D888300C1B779 /* JobRequestHistoryCoordinator.swift in Sources */,
 				4B858100238ED76300C1B779 /* AcceptJobRequestUseCase.swift in Sources */,
+				4B2507E1239821E2003B4094 /* SettingPresenter.swift in Sources */,
 				4B2507DB23980EC8003B4094 /* SettingTableViewController.swift in Sources */,
 				4BDD965A2382FE0400CED6C1 /* Storyboarded.swift in Sources */,
 				4BF983902380F2B10091915D /* ThreadScheduler.swift in Sources */,
 				4B728107237B3308006E4605 /* BaseObservable.swift in Sources */,
+				4B2507DD23981822003B4094 /* ContactUsTableViewController.swift in Sources */,
 				4BDD96512382508C00CED6C1 /* UserProfileViewPresenter.swift in Sources */,
 				4B7280E5237B113A006E4605 /* LoginViewController.swift in Sources */,
 				4BDD969E23847C6600CED6C1 /* UserLogOffUseCase.swift in Sources */,
@@ -718,6 +751,7 @@
 				4B72812E237C5D39006E4605 /* BaseTableViewCell.swift in Sources */,
 				4B2507D823980E7C003B4094 /* SettingCoordinator.swift in Sources */,
 				4B8580FE238E2FAB00C1B779 /* JobRequestHistoryPresenter.swift in Sources */,
+				4B2507EA2398A163003B4094 /* SupportCoordinator.swift in Sources */,
 				4B7280E3237B113A006E4605 /* AppDelegate.swift in Sources */,
 				4BDD96A023847D2700CED6C1 /* UserProfileViewCoordinator.swift in Sources */,
 				4B8580FA238DD3E900C1B779 /* Company.swift in Sources */,
@@ -893,7 +927,9 @@
 			baseConfigurationReference = C41CEA5A6447073B17507D1A /* Pods-Prodrivetime_ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Prodrivetime_ios/Prodrivetime_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = AJ8S9UW9R5;
 				INFOPLIST_FILE = "$(SRCROOT)/Prodrivetime_ios/application/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
@@ -913,7 +949,9 @@
 			baseConfigurationReference = 5CA95D1DCB5F03DEA7F8C6A2 /* Pods-Prodrivetime_ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Prodrivetime_ios/Prodrivetime_ios.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = AJ8S9UW9R5;
 				INFOPLIST_FILE = "$(SRCROOT)/Prodrivetime_ios/application/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;

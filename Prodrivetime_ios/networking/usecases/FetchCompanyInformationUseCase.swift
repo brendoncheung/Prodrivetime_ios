@@ -29,6 +29,7 @@ class FetchCompanyInformationUseCase: BaseObservable<FetchCompanyInformationDele
     
     func fetchCompanyInformationAndNotify(with request: URLRequest) {
         session.makeRequest(with: request)?.resume()
+        session.registerObserver(observer: self)
         getObserver()?.onCompanyInformationFetching()
         
     }
@@ -41,14 +42,15 @@ class FetchCompanyInformationUseCase: BaseObservable<FetchCompanyInformationDele
         } catch {
             getObserver()?.onCompanyInformationFetchFailed(error: .decodeJsonUnsucessful)
         }
+        session.unregisterObserver()
     }
     
     func onResponse(response: HTTPURLResponse) {
-        
+
     }
     
     func onError(err: BaseNetworkSessionError) {
-        
+
     }
     
     

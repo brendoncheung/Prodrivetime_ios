@@ -21,8 +21,7 @@ class ContactUsTableViewController: UITableViewController, Storyboarded {
         
         switch indexPath.section {
             
-            // MARK: - General
-            
+        // MARK: - General
         case 0:
             
             switch indexPath.row {
