@@ -55,19 +55,19 @@ class RequestDetailInteractorImpl: RequestDetailInteractor {
     }
     
     func handleAcceptButtonTapped() {
-        acceptJob()
+        presenter.onAcceptRequestProcessing()
+        
+        guard let requestId = request?.requestID, let driverEmail = user?.email, let driverId = user?.driverId else { return }
+        
+        guard let request = factory.createAcceptJobRequestURLRequest(requestId: requestId, driverEmail: driverEmail, driverId: driverId) else {fatalError("request can't be nil")}
+        acceptRequestUseCase.acceptJobRequest(with: request)
     }
     
     func handleCallButtonTapped() {
-        log.debug(request)
-        guard let urlRequest = factory.createFetchCompanyInfoURLRequest(companyEmail: request!.businessEmail) else { return }
+        
+        presenter.onCallRequestProcessing()
+        guard let request = request, let urlRequest = factory.createFetchCompanyInfoURLRequest(companyEmail: request.businessEmail) else { return }
         fetchCompanyInfoUseCase.fetchCompanyInformationAndNotify(with: urlRequest)
-    }
-    
-    private func acceptJob() {
-        guard let requestId = request?.requestID, let driverEmail = user?.email, let driverId = user?.driverId else { return }
-        guard let request = factory.createAcceptJobRequestURLRequest(requestId: requestId, driverEmail: driverEmail, driverId: driverId) else {fatalError("request can't be nil")}
-        acceptRequestUseCase.acceptJobRequest(with: request)
     }
 }
 
@@ -95,7 +95,8 @@ extension RequestDetailInteractorImpl: FetchCompanyInformationDelegate {
     }
     
     func onCompanyInformationFetched(company: Company) {
-       let url =  MakePhoneCallUseCase.makeCallUrl(number: company.phone)
+        guard let url =  MakePhoneCallUseCase.makeCallUrl(number: company.phone) else {return}
+        presenter.makeCallWith(url: url)
     }
     
     func onCompanyInformationFetchFailed(error: FetchCompanyInformationError) {

@@ -76,6 +76,7 @@ class BaseTabBarViewController: UITabBarController {
 
     func configureSettingCoordinator() {
         settingCoordinator.bindInjector(injector: injector)
+        settingCoordinator.bindUser(user: user)
         settingCoordinator.onStart()
     }
     

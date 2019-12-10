@@ -12,6 +12,8 @@ protocol RequestHistoryDetailPresenter: class {
     func onRequestHistoryFetching()
     func showRequestDetails(request: JobRequestHistory?)
     func acceptJobRequestSuccessful()
+    func makeCallWith(url: URL)
+    func fetchingCompanyInformation()
 }
 
 class RequestHistoryDetailPresenterImpl{
@@ -38,6 +40,15 @@ extension RequestHistoryDetailPresenterImpl: RequestHistoryDetailPresenter {
     
     func acceptJobRequestSuccessful() {
         
+    }
+    
+    func makeCallWith(url: URL) {
+        viewMvc?.hideLoadingIndicatorOnCallButton()
+        viewMvc?.openCallDialog(url: url)
+    }
+    
+    func fetchingCompanyInformation() {
+        viewMvc?.showLoadingIndicatorOnCallButton()
     }
     
     

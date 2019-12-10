@@ -15,6 +15,10 @@ protocol RequestHistoryDetailViewMvc: class {
     func showLoadingIndicator()
     func hideLoadingIndicator()
     func onAcceptSuccessful()
+    func openCallDialog(url: URL)
+    
+    func showLoadingIndicatorOnCallButton()
+    func hideLoadingIndicatorOnCallButton()
 }
 
 class RequestHistoryDetailViewController: BaseViewController, Storyboarded {
@@ -36,11 +40,16 @@ class RequestHistoryDetailViewController: BaseViewController, Storyboarded {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var callButton: ProdriveButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadingIndicator.hidesWhenStopped = true
         configureInteractor()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         interactor?.onStart()
     }
     
@@ -60,7 +69,7 @@ class RequestHistoryDetailViewController: BaseViewController, Storyboarded {
     // MARK: - IBActions
     
     @IBAction func onCalledButtonTapped(_ sender: Any) {
-        
+        interactor?.handleCallButtonTapped()
     }
 }
 
@@ -99,5 +108,16 @@ extension RequestHistoryDetailViewController: RequestHistoryDetailViewMvc {
         
     }
     
+    func openCallDialog(url: URL) {
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
+    func showLoadingIndicatorOnCallButton() {
+        callButton.showLoading()
+    }
+    
+    func hideLoadingIndicatorOnCallButton() {
+        callButton.hideLoading()
+    }
     
 }

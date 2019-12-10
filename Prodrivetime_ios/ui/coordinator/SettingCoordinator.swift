@@ -15,16 +15,14 @@ class SettingCoordinator: Coordinator {
     let TAB_TITLE = "Settings"
     let IMAGE_NAME = "setting_tab"
     let TABBAR_TAG = 5
-    
     let PRIVACY_POLICY_LINK = "https://www.prodrivetime.com/driver/driverRegister"
     let CONTACT_TITLE = "Contact"
     let RATE_US_TITLE = "Rate Us!"
     
     var childCoordinators = [Coordinator]()
-    
     var navigationController: BaseNavigationViewController
-    
     var injector: Injector?
+    var user: User?
     
     func onStart() {
         pushToMainSetting()
@@ -45,7 +43,7 @@ class SettingCoordinator: Coordinator {
     }
     
     func pushToRateUs() {
-        log.debug("rate us")
+
     }
     
     func pushToContactUs() {
@@ -62,10 +60,15 @@ class SettingCoordinator: Coordinator {
         navigationController.present(svc, animated: true, completion: nil)
     }
     
-    func pushToReportAProblem() {
-        log.debug("report a problem")
-        let support = SupportViewController.instantiate()
-        navigationController.present(support, animated: true, completion: nil)
+    func pushToFeedBack() {
+        let supportController = SupportViewController.instantiate()
+        let navController = BaseNavigationViewController()
+        injector?.inject(supportController: supportController)
+        supportController.title = "Feedbacks!"
+        supportController.subjectLine = "Feedbacks"
+        supportController.user = user
+        navController.pushViewController(supportController, animated: true)
+        navigationController.present(navController, animated: true, completion: nil)
     }
     
     func pushToLogOut(logoutHandler: @escaping () -> ()) {
@@ -87,6 +90,9 @@ class SettingCoordinator: Coordinator {
         self.injector = injector
     }
     
+    func bindUser(user: User) {
+        self.user = user
+    }
     
     
 }

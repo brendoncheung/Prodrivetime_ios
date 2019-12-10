@@ -12,6 +12,7 @@ protocol RequestDetailPresenter {
     func onAcceptRequestProcessing()
     func showRequestDetails(request: JobRequest?)
     func acceptJobRequestSuccessful()
+    func onCallRequestProcessing()
     func makeCallWith(url: URL)
 }
 
@@ -24,7 +25,7 @@ class RequestDetailPresenterImpl: RequestDetailPresenter {
     }
     
     func onAcceptRequestProcessing() {
-        viewMvc?.showLoadingIndicator()
+        viewMvc?.showLoadingIndicatorOnAcceptButton()
     }
 
     func showRequestDetails(request: JobRequest?) {
@@ -33,12 +34,17 @@ class RequestDetailPresenterImpl: RequestDetailPresenter {
     }
     
     func acceptJobRequestSuccessful() {
-        viewMvc?.hideLoadingIndicator()
+        viewMvc?.hideLoadingIndicatorOnAcceptButton()
         viewMvc?.onAcceptSuccessful()
     }
     
     func makeCallWith(url: URL) {
-        
+        viewMvc?.hideLoadingIndicatorOnCallButton()
+        viewMvc?.openCallDialog(url: url)
+    }
+    
+    func onCallRequestProcessing() {
+        viewMvc?.showLoadingIndicatorOnCallButton()
     }
     
 }

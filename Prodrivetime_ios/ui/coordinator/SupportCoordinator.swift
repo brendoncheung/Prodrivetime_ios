@@ -41,10 +41,4 @@ class SupportCoordinator: Coordinator {
     func bindUser(user: User){
         self.user = user
     }
-    
-    
-    
-    
-    
-    
 }

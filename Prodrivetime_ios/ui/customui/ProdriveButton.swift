@@ -13,6 +13,12 @@ import UIKit
 class ProdriveButton: UIButton{
     
     var activityIndicator: UIActivityIndicatorView!
+    var titleName: String?
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        titleName = titleLabel?.text
+    }
     
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
@@ -45,7 +51,8 @@ class ProdriveButton: UIButton{
     }
     
     func hideLoading() {
-        self.setTitle("Login", for: .normal)
+        
+        self.setTitle(titleName, for: .normal)
         activityIndicator.stopAnimating()
     }
     
@@ -70,9 +77,6 @@ class ProdriveButton: UIButton{
         let yCenterConstraint = NSLayoutConstraint(item: self, attribute: .centerY, relatedBy: .equal, toItem: activityIndicator, attribute: .centerY, multiplier: 1, constant: 0)
         self.addConstraint(yCenterConstraint)
     }
-
-    
-    
 }
 
 

@@ -42,7 +42,7 @@ class SettingTableViewController: UITableViewController, Storyboarded {
             switch indexPath.row {
                 
             case 0 : // Report A Problem
-                coordinator?.pushToReportAProblem()
+                coordinator?.pushToFeedBack()
                 
             case 1: // Contact Us
                 coordinator?.pushToContactUs()

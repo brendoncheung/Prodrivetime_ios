@@ -26,6 +26,8 @@ class SupportViewController: BaseViewController, Storyboarded {
     
     var user: User?
     
+    var subjectLine: String?
+    
     var interactor: SupportInteractor?
     
     override func viewDidLoad() {
@@ -54,6 +56,7 @@ class SupportViewController: BaseViewController, Storyboarded {
     private func configureTextField() {
         questionTextView.delegate = self
         emailTextField.text = user?.email
+        subjectTextField.text = subjectLine
     }
 }
 
