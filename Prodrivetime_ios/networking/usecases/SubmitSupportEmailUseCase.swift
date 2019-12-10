@@ -29,7 +29,7 @@ class SubmitSupportEmailUseCase: BaseObservable<SubmitSupportEmailUseCaseDelegat
     }
     
     func onData(data: Data) {
-        log.debug(String(data: data, encoding: .utf8))
+        
     }
     
     func onResponse(response: HTTPURLResponse) {

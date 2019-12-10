@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>852464021373-3c8udougn2orv0jtiihro8ovehgo5ru0.apps.googleusercontent.com</string>
+	<string>852464021373-ovlg07495msicqnfqkddguk8mbvmvfei.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.852464021373-3c8udougn2orv0jtiihro8ovehgo5ru0</string>
+	<string>com.googleusercontent.apps.852464021373-ovlg07495msicqnfqkddguk8mbvmvfei</string>
 	<key>ANDROID_CLIENT_ID</key>
 	<string>852464021373-9l2qsvkc5qbtmufk0fsihu9ol9rb4mqi.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
@@ -15,7 +15,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>Prodrivetime-ios</string>
+	<string>alephreach.Prodrivetime-ios</string>
 	<key>PROJECT_ID</key>
 	<string>drive-time-b3106</string>
 	<key>STORAGE_BUCKET</key>
@@ -31,7 +31,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:852464021373:ios:17367aa52c6887158c6614</string>
+	<string>1:852464021373:ios:b787506f976316dd8c6614</string>
 	<key>DATABASE_URL</key>
 	<string>https://drive-time-b3106.firebaseio.com</string>
 </dict>

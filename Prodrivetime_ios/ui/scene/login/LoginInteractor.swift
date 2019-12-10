@@ -103,6 +103,7 @@ extension LoginInteractorImpl: FetchFireBaseTokenUseCaseDelegate {
         guard let request = factory.createLoginURLRequest(email: email, pw: password, token: token) else {
             return
         }
+        log.debug(request.description)
         loginUseCase.fetchUserProfileAndNotify(with: request)
     }
 }

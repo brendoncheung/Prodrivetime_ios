@@ -733,6 +733,8 @@
                     </view>
                     <size key="freeformSize" width="375" height="920"/>
                     <connections>
+                        <outlet property="acceptButton" destination="uYA-Vm-uks" id="TFG-qZ-tq3"/>
+                        <outlet property="callButton" destination="TYa-FF-DA9" id="U30-ol-7GJ"/>
                         <outlet property="deliveryDateLabel" destination="m8k-ix-v3u" id="Zcc-m7-jk3"/>
                         <outlet property="dropoffAddressLabel" destination="25P-6k-YAf" id="93n-cj-Gh1"/>
                         <outlet property="emailLabel" destination="8NU-Yu-dle" id="TQc-Re-YQC"/>
@@ -1084,6 +1086,7 @@
                     </view>
                     <size key="freeformSize" width="375" height="920"/>
                     <connections>
+                        <outlet property="callButton" destination="5O1-fI-GbV" id="Spo-9f-XXr"/>
                         <outlet property="datePostedLabel" destination="5vi-5e-STJ" id="gDp-kL-tmf"/>
                         <outlet property="deliveryDateLabel" destination="WyS-HR-7pI" id="y22-wI-ILn"/>
                         <outlet property="descriptionLabel" destination="xbI-LB-M9e" id="p0c-fO-tIJ"/>

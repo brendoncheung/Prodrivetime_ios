@@ -38,8 +38,6 @@ class FetchRequestHistoryUseCase: BaseObservable<FetchRequestHistoryUseCaseDeleg
         
         do {
             let request = try JSONDecoder().decode([JobRequestHistory].self, from: data)
-            
-            log.debug(String(data: data, encoding: .utf8))
             getObserver()?.onRequestHistoryFetched(request: request)
         } catch {
             getObserver()?.onRequestHistoryFetchedFailed(error: .decodeJsonUnsucessful)

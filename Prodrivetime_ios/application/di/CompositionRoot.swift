@@ -176,7 +176,7 @@ class CompositionRoot {
     }
     
     func getJobRequestHistoryDetailsInteractor(presenter: RequestHistoryDetailPresenter) -> RequestHistoryDetailInteractor {
-        return RequestHistoryDetailInteractorImpl(fetchCompanyInformationUseCase: getFetchCompanyInformationUseCase(), presenter: presenter)
+        return RequestHistoryDetailInteractorImpl(fetchCompanyInformationUseCase: getFetchCompanyInformationUseCase(), presenter: presenter, factory: getURLRequestFactory())
     }
     
     func getSettingInteractor(presenter: SettingPresenter) -> SettingInteractor {

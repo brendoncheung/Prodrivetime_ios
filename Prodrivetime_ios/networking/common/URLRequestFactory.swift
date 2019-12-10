@@ -39,7 +39,7 @@ class URLRequestFactory {
 
         let email_param = "email"
         let password_param = "password"
-        let token_param = "token"
+        let token_param = "firebaseToken"
         
         guard let url = createURL(api: .Login) else {
             log.debug("createLoginURLRequest failed")

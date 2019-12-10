@@ -20,6 +20,10 @@ class ProdriveButton: UIButton{
         titleName = titleLabel?.text
     }
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
             self.layer.cornerRadius = cornerRadius

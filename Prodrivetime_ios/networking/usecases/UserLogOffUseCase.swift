@@ -34,7 +34,6 @@ class UserLogOffUseCase: BaseObservable<UserLogOffUseCaseDelegate> {
 extension UserLogOffUseCase: BaseSessionCallback {
     
     func onData(data: Data) {
-        log.debug(String(data: data, encoding: .utf8))
         // weird backend response
     }
     

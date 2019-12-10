@@ -15,6 +15,12 @@ protocol RequestDetailViewMvc: class {
     func hideLoadingIndicator()
     func onAcceptSuccessful()
     func openCallDialog(url: URL)
+    
+    func showLoadingIndicatorOnAcceptButton()
+    func hideLoadingIndicatorOnAcceptButton()
+    
+    func showLoadingIndicatorOnCallButton()
+    func hideLoadingIndicatorOnCallButton()
 }
 protocol DeleteTableRowDelegate: class {
     func deleteRow(at row: Int)
@@ -32,6 +38,8 @@ class RequestDetailViewController: BaseViewController, Storyboarded {
     @IBOutlet weak var deliveryDateLabel: UILabel!
     @IBOutlet weak var jobDescriptionLabel: UILabel!
     
+    @IBOutlet weak var callButton: ProdriveButton!
+    @IBOutlet weak var acceptButton: ProdriveButton!
     @IBOutlet weak var loadWeightLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
@@ -46,17 +54,13 @@ class RequestDetailViewController: BaseViewController, Storyboarded {
     
     override func viewDidLoad() {
         loadingIndicator.hidesWhenStopped = true
-        interator?.bindRequest(request: request)
-        interator?.bindUserProfile(user: user)
-        interator?.onStart()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        interator?.bindRequest(request: request)
-//        interator?.bindUserProfile(user: user)
-//        interator?.onStart()
-
+        interator?.bindRequest(request: request)
+        interator?.bindUserProfile(user: user)
+        interator?.onStart()
     }
     
     // MARK: - IBAction
@@ -121,6 +125,22 @@ extension RequestDetailViewController: RequestDetailViewMvc {
     
     func openCallDialog(url: URL) {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
+    func showLoadingIndicatorOnAcceptButton() {
+        acceptButton.showLoading()
+    }
+    
+    func hideLoadingIndicatorOnAcceptButton() {
+        acceptButton.hideLoading()
+    }
+    
+    func showLoadingIndicatorOnCallButton() {
+        callButton.showLoading()
+    }
+    
+    func hideLoadingIndicatorOnCallButton() {
+        callButton.hideLoading()
     }
 }
 

@@ -46,10 +46,10 @@ class RequestHistoryDetailViewController: BaseViewController, Storyboarded {
         super.viewDidLoad()
         loadingIndicator.hidesWhenStopped = true
         configureInteractor()
-        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         interactor?.onStart()
     }
     

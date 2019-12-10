@@ -74,7 +74,6 @@ class JobRequestViewController: BaseViewController, Storyboarded {
         jobRequestTableView.tableFooterView = UIView()
         jobRequestTableView.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
         jobRequestTableView.refreshControl = freshControl
-        
     }
     
     func configureSearchBar() {

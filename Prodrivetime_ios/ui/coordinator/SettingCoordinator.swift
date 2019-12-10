@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SafariServices
+import StoreKit
 
 class SettingCoordinator: Coordinator {
     
@@ -43,7 +44,7 @@ class SettingCoordinator: Coordinator {
     }
     
     func pushToRateUs() {
-
+        SKStoreReviewController.requestReview()
     }
     
     func pushToContactUs() {
