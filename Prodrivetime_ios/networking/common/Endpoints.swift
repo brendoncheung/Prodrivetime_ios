@@ -24,4 +24,6 @@ struct Endpoints {
 
     static let loadHistoryEndpoint = "api/mobileApi/driverMobileHistory.php" // driverEmail
     
+    static let supportEmailEndpoint = "services/sendSupportEmail"
+    
 }

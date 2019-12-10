@@ -59,8 +59,9 @@ class Injector {
         settingController.interactor = interactor
     }
     
-    
-    
-    
-    
+    func inject(supportController: SupportViewController) {
+        let presenter = compositionRoot.getSupportPresenter(viewMvc: supportController)
+        let interactor = compositionRoot.getSupportInteractor(presenter: presenter)
+        supportController.interactor = interactor
+    }
 }

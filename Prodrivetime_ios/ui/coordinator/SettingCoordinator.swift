@@ -12,7 +12,7 @@ import SafariServices
 
 class SettingCoordinator: Coordinator {
     
-    let TAB_TITLE = "Setting"
+    let TAB_TITLE = "Settings"
     let IMAGE_NAME = "setting_tab"
     let TABBAR_TAG = 5
     
@@ -37,7 +37,7 @@ class SettingCoordinator: Coordinator {
     func pushToMainSetting() {
         let rootController = SettingTableViewController.instantiate()
         injector?.inject(settingController: rootController)
-        rootController.title = "Setting"
+        rootController.title = TAB_TITLE
         rootController.coordinator = self
         rootController.tabBarItem = UITabBarItem(title: TAB_TITLE, image: UIImage(named: IMAGE_NAME), tag: TABBAR_TAG)
         

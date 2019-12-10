@@ -14,7 +14,7 @@ protocol JobRequestViewMvc: class{
     func hideLoadingIndicator()
     func showEmptyState()
     func hideEmptyState()
-    func dataSourceReadyToDisplayData()
+    func showAlert(title: String, message: String)
 }
 
 class JobRequestViewController: BaseViewController, Storyboarded {
@@ -44,6 +44,7 @@ class JobRequestViewController: BaseViewController, Storyboarded {
         configureTableView()
         configureSearchBar()
         configureInteractor()
+        configureRefreshControll()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,14 +70,19 @@ class JobRequestViewController: BaseViewController, Storyboarded {
         jobRequestTableView.delegate = self
         jobRequestTableView.separatorColor = UIColor.clear
         jobRequestTableView.keyboardDismissMode = .onDrag
-        jobRequestTableView.tableFooterView = UIView() // to remove separator between empty cells
+        // to remove separator between empty cells
+        jobRequestTableView.tableFooterView = UIView()
         jobRequestTableView.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
         jobRequestTableView.refreshControl = freshControl
-        freshControl.addTarget(self, action: #selector(startRequestFetch), for: .valueChanged)
+        
     }
     
     func configureSearchBar() {
         searchbar.delegate = self
+    }
+    
+    func configureRefreshControll() {
+        freshControl.addTarget(self, action: #selector(startRequestFetch), for: .valueChanged)
     }
     
     // MARK: - owner inplementation
@@ -120,8 +126,11 @@ extension JobRequestViewController: JobRequestViewMvc {
         jobRequestTableView.separatorColor = UIColor.lightGray
     }
     
-    func dataSourceReadyToDisplayData() {
-        jobRequestTableView.reloadData()
+    func showAlert(title: String, message: String) {
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Okay", style: .cancel, handler: nil)
+        controller.addAction(action)
+        present(controller, animated: true, completion: nil)
     }
 }
 

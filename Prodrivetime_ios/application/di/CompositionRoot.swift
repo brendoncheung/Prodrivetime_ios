@@ -111,6 +111,10 @@ class CompositionRoot {
         return FetchCompanyInformationUseCase(session: getBaseNetworkSession())
     }
     
+    func getSubmitSupportEmailUseCase() -> SubmitSupportEmailUseCase {
+        return SubmitSupportEmailUseCase(session: getBaseNetworkSession())
+    }
+    
     func getUserLogOutUseCase() -> UserLogOffUseCase {
         return UserLogOffUseCase(session: getBaseNetworkSession())
     }
@@ -144,6 +148,10 @@ class CompositionRoot {
     func getSettingPresenter(viewMvc: SettingTableViewController) -> SettingPresenter {
         return SettingPresenterImpl(viewMvc: viewMvc)
     }
+    
+    func getSupportPresenter(viewMvc: SupportViewController) -> SupportPresenter {
+        return SupportPresenterImpl(viewMvc: viewMvc)
+    }
 
     // MARK: - Interactors configuration
     
@@ -160,7 +168,7 @@ class CompositionRoot {
     }
     
     func getJobRequestDetailInteractor(presenter: RequestDetailPresenter) -> RequestDetailInteractor {
-        return RequestDetailInteractorImpl(acceptRequestUseCase: getAcceptRequestUseCase(), factory: getURLRequestFactory(), presenter: presenter)
+        return RequestDetailInteractorImpl(acceptRequestUseCase: getAcceptRequestUseCase(), fetchCompanyInfoUseCase: getFetchCompanyInformationUseCase(), factory: getURLRequestFactory(), presenter: presenter)
     }
     
     func getJobRequestHistoryInteractor(presenter: JobRequestHistoryPresenter) -> JobRequestHistoryInteractor {
@@ -173,6 +181,11 @@ class CompositionRoot {
     
     func getSettingInteractor(presenter: SettingPresenter) -> SettingInteractor {
         return SettingInteractorImpl(logOutUseCase: getUserLogOutUseCase(), presenter: presenter, authenticator: getAuthentication(), factory: getURLRequestFactory())
+    }
+    
+    func getSupportInteractor(presenter: SupportPresenter) -> SupportInteractor {
+        return SupportInteractorImpl(supportEmailUseCase: getSubmitSupportEmailUseCase(), presenter: presenter, factory: getURLRequestFactory())
+        
     }
 }
 

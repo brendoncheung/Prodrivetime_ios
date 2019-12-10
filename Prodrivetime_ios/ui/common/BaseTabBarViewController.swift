@@ -17,6 +17,8 @@ class BaseTabBarViewController: UITabBarController {
     let requestCoordinator = JobRequestCoordinator(navigationController: BaseNavigationViewController())
     let requestHistoryCoordinator = JobRequestHistoryCoordinator(navigationController: BaseNavigationViewController())
     let settingCoordinator = SettingCoordinator(navigationController: BaseNavigationViewController())
+    let supportCoordinator = SupportCoordinator(navigationController: BaseNavigationViewController())
+    
     let supportController = SupportViewController.instantiate()
     
     init(user: User, injector: Injector) {
@@ -41,6 +43,7 @@ class BaseTabBarViewController: UITabBarController {
         configureRequestCoordinator()
         configureRequestHistoryCoordinator()
         configureSettingCoordinator()
+        configureSupportCoordinator()
         
         viewControllers = [
             userProfileCoordinator.navigationController,
@@ -75,6 +78,12 @@ class BaseTabBarViewController: UITabBarController {
         settingCoordinator.bindInjector(injector: injector)
         settingCoordinator.onStart()
     }
+    
+    func configureSupportCoordinator() {
+        supportCoordinator.bindInjector(injector: injector)
+        supportCoordinator.bindUser(user: user)
+        supportCoordinator.onStart()
+    }
 }
 
 // MARK: - showing modal support controller
@@ -86,7 +95,7 @@ extension BaseTabBarViewController: UITabBarControllerDelegate {
         if #available(iOS 13, *) {
             if viewController is SupportViewController {
                 self.modalPresentationStyle = .pageSheet
-                self.present(supportController, animated: true, completion: nil)
+                self.present(supportCoordinator.navigationController, animated: true, completion: nil)
                 return false
             }
         } else {

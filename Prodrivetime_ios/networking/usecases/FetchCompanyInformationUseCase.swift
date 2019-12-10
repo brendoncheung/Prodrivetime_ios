@@ -28,16 +28,16 @@ class FetchCompanyInformationUseCase: BaseObservable<FetchCompanyInformationDele
     }
     
     func fetchCompanyInformationAndNotify(with request: URLRequest) {
-        session.makeRequest(with: request)?.resume()
         session.registerObserver(observer: self)
+        session.makeRequest(with: request)?.resume()
         getObserver()?.onCompanyInformationFetching()
-        
     }
     
     func onData(data: Data) {
         do {
             let company = try JSONDecoder().decode(Company.self, from: data)
             getObserver()?.onCompanyInformationFetched(company: company)
+            log.debug(company)
             
         } catch {
             getObserver()?.onCompanyInformationFetchFailed(error: .decodeJsonUnsucessful)
@@ -46,7 +46,7 @@ class FetchCompanyInformationUseCase: BaseObservable<FetchCompanyInformationDele
     }
     
     func onResponse(response: HTTPURLResponse) {
-
+        
     }
     
     func onError(err: BaseNetworkSessionError) {

@@ -14,6 +14,7 @@ protocol RequestDetailViewMvc: class {
     func showLoadingIndicator()
     func hideLoadingIndicator()
     func onAcceptSuccessful()
+    func openCallDialog(url: URL)
 }
 protocol DeleteTableRowDelegate: class {
     func deleteRow(at row: Int)
@@ -45,14 +46,20 @@ class RequestDetailViewController: BaseViewController, Storyboarded {
     
     override func viewDidLoad() {
         loadingIndicator.hidesWhenStopped = true
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         interator?.bindRequest(request: request)
         interator?.bindUserProfile(user: user)
         interator?.onStart()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        interator?.bindRequest(request: request)
+//        interator?.bindUserProfile(user: user)
+//        interator?.onStart()
+
+    }
+    
+    // MARK: - IBAction
     
     @IBAction func onCallButtonTapped(_ sender: Any) {
         interator?.handleCallButtonTapped()
@@ -72,7 +79,7 @@ extension RequestDetailViewController: RequestDetailViewMvc {
     
     func populateUI(request: JobRequest) {
         titleLabel.text = request.title
-        offeringLabel.text = "$ \(request.price)"
+        offeringLabel.text = StringFormatter.convertStringToCurrency(string: request.price)
         emailLabel.text = request.businessEmail
         requestIdLabel.text = "\(request.requestID)"
         pickupAddressLabel.text = request.pickupAddress
@@ -110,6 +117,10 @@ extension RequestDetailViewController: RequestDetailViewMvc {
     func onAcceptSuccessful() {
         coordinator?.popBack()
         //delegate?.deleteRow(at: rowSelected)
+    }
+    
+    func openCallDialog(url: URL) {
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }
 

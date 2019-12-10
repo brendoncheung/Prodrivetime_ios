@@ -37,6 +37,7 @@ class JobRequestPresenterImpl: JobRequestPresenter {
         viewMvc?.populateTable(requests: [JobRequest]())
         viewMvc?.hideLoadingIndicator()
         viewMvc?.showEmptyState()
+        viewMvc?.showAlert(title: "Empty", message: "Please check back :)")
     }
 }
 

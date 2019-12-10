@@ -26,7 +26,8 @@ class JobRequestHistoryDataSource: NSObject, UITableViewDataSource {
         cell.title.text = request.title
         cell.company.text = request.businessName
         cell.location.text = request.pickupAddresss
-        cell.offer.text = StringFormatter.convertStringToCurrency(string: request.offering) 
+        cell.offer.text = StringFormatter.convertStringToCurrency(string: request.offering)
+        cell.time.text = request.timeStamp
         
         return cell
         

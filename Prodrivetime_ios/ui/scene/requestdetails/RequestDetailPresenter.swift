@@ -12,6 +12,7 @@ protocol RequestDetailPresenter {
     func onAcceptRequestProcessing()
     func showRequestDetails(request: JobRequest?)
     func acceptJobRequestSuccessful()
+    func makeCallWith(url: URL)
 }
 
 class RequestDetailPresenterImpl: RequestDetailPresenter {
@@ -34,6 +35,10 @@ class RequestDetailPresenterImpl: RequestDetailPresenter {
     func acceptJobRequestSuccessful() {
         viewMvc?.hideLoadingIndicator()
         viewMvc?.onAcceptSuccessful()
+    }
+    
+    func makeCallWith(url: URL) {
+        
     }
     
 }

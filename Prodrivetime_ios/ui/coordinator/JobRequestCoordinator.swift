@@ -11,7 +11,7 @@ import UIKit
 
 class JobRequestCoordinator: Coordinator {
     
-    let JOB_REQUEST_TAB_TITLE = "Request"
+    let JOB_REQUEST_TAB_TITLE = "Requests"
     let DETAIL_REQUEST_TAB_TITLE = "Details"
     let IMAGE_NAME = "request_tab"
     let TABBAR_TAG = 2

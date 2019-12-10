@@ -22,6 +22,7 @@ class FetchFireBaseTokenUseCase: BaseObservable<FetchFireBaseTokenUseCaseDelegat
         }
         
         getObserver()?.onFirebaseTokenFetched(token: firebaseToken)
+        log.debug(firebaseToken)
         
         
     }

@@ -19,6 +19,7 @@ protocol RequestDetailInteractor: BaseInteractor {
 class RequestDetailInteractorImpl: RequestDetailInteractor {
     
     private let acceptRequestUseCase: AcceptJobRequestUseCase
+    private let fetchCompanyInfoUseCase: FetchCompanyInformationUseCase
     private let factory: URLRequestFactory
     private let presenter: RequestDetailPresenter
     
@@ -26,15 +27,18 @@ class RequestDetailInteractorImpl: RequestDetailInteractor {
     private var request: JobRequest?
     
     init(acceptRequestUseCase: AcceptJobRequestUseCase,
+         fetchCompanyInfoUseCase: FetchCompanyInformationUseCase,
          factory: URLRequestFactory,
          presenter: RequestDetailPresenter) {
         self.acceptRequestUseCase = acceptRequestUseCase
+        self.fetchCompanyInfoUseCase = fetchCompanyInfoUseCase
         self.factory = factory
         self.presenter = presenter
     }
     
     func onStart() {
         acceptRequestUseCase.registerObserver(observer: self)
+        fetchCompanyInfoUseCase.registerObserver(observer: self)
         presenter.showRequestDetails(request: request)
     }
     
@@ -50,13 +54,14 @@ class RequestDetailInteractorImpl: RequestDetailInteractor {
         self.request = request
     }
     
-
     func handleAcceptButtonTapped() {
         acceptJob()
     }
     
     func handleCallButtonTapped() {
-        log.debug("handleCallButtonTapped clicked")
+        log.debug(request)
+        guard let urlRequest = factory.createFetchCompanyInfoURLRequest(companyEmail: request!.businessEmail) else { return }
+        fetchCompanyInfoUseCase.fetchCompanyInformationAndNotify(with: urlRequest)
     }
     
     private func acceptJob() {
@@ -80,5 +85,20 @@ extension RequestDetailInteractorImpl: AcceptJobRequestUseCaseDelegate {
     
     func onRequestAcceptJobFailed(error: AcceptJobRequestUseCaseError) {
         log.debug("onRequestAcceptJobFailed")
+    }
+}
+
+extension RequestDetailInteractorImpl: FetchCompanyInformationDelegate {
+    
+    func onCompanyInformationFetching() {
+        // TODO: - show loading indicator
+    }
+    
+    func onCompanyInformationFetched(company: Company) {
+       let url =  MakePhoneCallUseCase.makeCallUrl(number: company.phone)
+    }
+    
+    func onCompanyInformationFetchFailed(error: FetchCompanyInformationError) {
+        
     }
 }

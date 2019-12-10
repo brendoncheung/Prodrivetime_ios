@@ -15,6 +15,7 @@ private enum API {
     case AcceptRequest
     case LoadHistory
     case CompanyInfo
+    case SupportEmail
 }
 
 class URLRequestFactory {
@@ -95,14 +96,28 @@ class URLRequestFactory {
         return request
     }
     
+    // FIXME: - the logout request should be a get
+    
     func createUserLogOutURLRequest() -> URLRequest? {
         guard let url = createURL(api: .Logoff) else { return nil}
-        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
-        
         return request
+    }
+    
+    func createFetchCompanyInfoURLRequest(companyEmail: String) -> URLRequest? {
+        guard let url = createURL(api: .CompanyInfo) else { return nil }
+        var request = createPOSTRequest(url: url)
+        request.httpBody = "clientEmail=\(companyEmail)".data(using: .utf8)
+        return request
+    }
+    
+    func createSendSupportEmailURLRequest(subject: String, email: String, body: String) -> URLRequest? {
         
+        guard let url = createURL(api: .SupportEmail) else { return nil}
+        var request = createPOSTRequest(url: url)
+        request.httpBody = "subject=\(subject)&email=\(email)&body=\(body)".data(using: .utf8)
+        return request
     }
     
     fileprivate func createURL(api: API) -> URL? {
@@ -126,6 +141,9 @@ class URLRequestFactory {
             
         case .CompanyInfo :
             return URL(string: Endpoints.companyInfoEndpoint, relativeTo: BASE_URL)
+            
+        case .SupportEmail :
+            return URL(string: Endpoints.supportEmailEndpoint, relativeTo: BASE_URL)
         }
     }
     

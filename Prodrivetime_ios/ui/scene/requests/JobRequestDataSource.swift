@@ -23,6 +23,7 @@ class JobRequestDataSource: NSObject, UITableViewDataSource {
         cell.title.text = request.title
         cell.company.text = request.businessName
         cell.location.text = request.pickupAddress
+        cell.time.text = request.timestamp
         cell.offer.text = StringFormatter.convertStringToCurrency(string: request.price)
     
         return cell
